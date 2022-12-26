@@ -1,5 +1,8 @@
 #include "mll.h"
 listPenumpang createListPenumpang(){
+    /*  {Fungsi menginisialisasi list penumpang dan mengembalikan list penumpang yang kosong}
+        Catatan : ada pointer first dan last    */
+
     listPenumpang LP;
     LP.first = NULL;
     LP.last = NULL;
@@ -7,6 +10,7 @@ listPenumpang createListPenumpang(){
 }
 
 infotypePenumpang createInfoPenumpang(string nama, int usia, string jenisKelamin){
+    /*  {Fungsi menginisialiasi X dan mengembalikan X yang berisi info dari seorang penumpang}    */
     infotypePenumpang X;
     X.nama = nama;
     X.usia = usia;
@@ -16,6 +20,8 @@ infotypePenumpang createInfoPenumpang(string nama, int usia, string jenisKelamin
 }
 
 adrPenumpang createElmPenumpang(infotypePenumpang X){
+    /* {Fungsi menginisialisasi dan mengalokasi element penumpang, kemudian fungsi mengembalikan element penumpang
+        yang infonya ter isi oleh X} */
     adrPenumpang P = new elmPenumpang;
     info(P) = X;
     next(P) = NULL;
@@ -26,6 +32,8 @@ adrPenumpang createElmPenumpang(infotypePenumpang X){
 }
 
 void insertLastPenumpang(kereta &k, adrPenumpang P){
+    /*  {I.S. list penumpang pada kereta k mungkin kosong, dan element penumpang P
+         F.S. element penumpang P ditambahkan pada list penumpang paling terakhir}   */
     if (k.penumpang.first == NULL && k.penumpang.last == NULL){
         k.penumpang.first = P;
         k.penumpang.last = P;
@@ -38,29 +46,31 @@ void insertLastPenumpang(kereta &k, adrPenumpang P){
 }
 
 void showPenumpang(kereta k){
+    /*  {I.S. list penumpang pada kereta k mungkin kosong
+         F.S. menampilkan seluruh data penumpang yang ada pada kereta k}    */
     cout << "Penumpang dari kereta " << k.info.nama << endl;
     if (k.penumpang.first==NULL){
         cout << "Penumpang Kosong"<<endl;
     }else{
         adrPenumpang P;
         P = k.penumpang.first;
-        
+
         int col = 3;
         int colWidth[] = {8, 4, 10};
-        
+
         string data[] = {"NAMA", "USIA", "KELAMIN"};
-        
+
         tableHorizontalSparator(col, colWidth);
         tableRow(col, colWidth, data);
         tableHorizontalSparator(col, colWidth);
-        
+
         while (P!=NULL){
             string data[] = {info(P).nama, to_string(info(P).usia), info(P).jenisKelamin};
             tableRow(col, colWidth, data);
-            
+
             P = next(P);
         }
-        
+
         tableHorizontalSparator(col, colWidth);
         cout<<endl;
     }
@@ -68,6 +78,9 @@ void showPenumpang(kereta k){
 }
 
 adrPenumpang searchPenumpang(kereta k, string nama){
+    /*  {Fungsi akan mengembalikan alamat penumpang jika terdapat pada list penumpang
+         atau NULL jika tidak terdapat pada list penumpang}     */
+         
     adrPenumpang P = k.penumpang.first;
 
     while (P!=NULL){
@@ -81,6 +94,9 @@ adrPenumpang searchPenumpang(kereta k, string nama){
 }
 
 void deletePenumpang(kereta &k, string nama){
+    /*  {I.S. list penumpang mungkin kosong
+         F.S. menghapus penumpang dari list penumpang jika penumpang tersebut ada pada list penumpang}   */
+
     //CEK KALAU KOSONG
     if (k.penumpang.first == NULL){
         cout << "List Kosong"<<endl;
@@ -113,21 +129,23 @@ void deletePenumpang(kereta &k, string nama){
 }
 
 void showPenumpangByGerbong(kereta k, string kelas){
+    /*  {I.S. list penumpang pada kereta k mungkin kosong
+         F.S. mencetak seluruh penumpang berdasarkan kelas gerbong}   */
     cout << "Penumpang dari kereta " << k.info.nama << " di gerbong " << kelas << endl;
     if (k.penumpang.first == NULL){
         cout << "List Penumpang Kosong"<<endl;
     }else{
         adrPenumpang P = k.penumpang.first;
-        
+
         int col = 4;
         int colWidth[] = {8, 4, 10, 12};
-        
+
         string data[] = {"NAMA", "USIA", "KELAMIN", "KELAS"};
-        
+
         tableHorizontalSparator(col, colWidth);
         tableRow(col, colWidth, data);
         tableHorizontalSparator(col, colWidth);
-        
+
         while (P!=NULL){
             if (gerbong(P)!=NULL){
                 if (info(gerbong(P)).kelas == kelas){
@@ -138,13 +156,16 @@ void showPenumpangByGerbong(kereta k, string kelas){
             }
             P = next(P);
         }
-        
+
         tableHorizontalSparator(col, colWidth);
         cout<<endl;
     }
 }
 
-int countPenumpangByGerbong(kereta k,string kelas){
+
+int countPenumpangByGerbong(kereta k,string kelas) {
+    /*  {Fungsi akan mengembalikan banyak penumpang dari suatu gerbong} */
+
     int counter = 0;
     if (k.penumpang.first==NULL){
         return 0;

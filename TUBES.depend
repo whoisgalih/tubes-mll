@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1672037680 source:e:\tugas besar\tubes-mll\gerbong.cpp
+	"mll.h"
+
+1672037680 e:\tugas besar\tubes-mll\mll.h
+	<iostream>
+	<sstream>
+
+1672037680 source:e:\tugas besar\tubes-mll\kereta.cpp
+	"mll.h"
+
+1672037680 source:e:\tugas besar\tubes-mll\main.cpp
+	"mll.h"
+
+1672037680 source:e:\tugas besar\tubes-mll\penumpang.cpp
+	"mll.h"
+
+1672037680 source:e:\tugas besar\tubes-mll\table.cpp
+	"mll.h"
+
+1672037680 source:e:\tugas besar\tubes-mll\turangga.cpp
+	"mll.h"
+

@@ -1,6 +1,7 @@
 #include "mll.h"
 // Kereta
 kereta createKereta(infoKereta info) {
+    /*  {Fungsi menginisialisasi kereta dan mengembalikan kereta dengan list penumpang dan list gerbong nya kosong} */
     kereta k;
     k.gerbong = createListGerbong();
     k.penumpang = createListPenumpang();
@@ -10,6 +11,7 @@ kereta createKereta(infoKereta info) {
 }
 
 infoKereta createInfoKereta(string nama, string asal, string tujuan, string tanggal, string jamBerangkat, string jamTiba, int panjangRangkaian) {
+    /*  {Fungsi menginisialisasi info dan mengembalikan info yang sudah terisi } */
     infoKereta info;
     info.nama = nama;
     info.asal = asal;
@@ -23,6 +25,9 @@ infoKereta createInfoKereta(string nama, string asal, string tujuan, string tang
 }
 
 void connectPenumpangGerbong(kereta &k, string nama, string kelas) {
+    /* {I.S. diberikan kereta k yang mungkin kosong dan nama, kelas gerbong yang mungkin tidak ada pada list
+        F.S. penumpang dengan nama yang diberikan terhubung dengan gerbong yang memiliki kelas yang diberikan} */
+        
     adrGerbong g = searchGerbong(k, kelas);
     adrPenumpang p = searchPenumpang(k, nama);
 
@@ -39,6 +44,9 @@ void connectPenumpangGerbong(kereta &k, string nama, string kelas) {
 }
 
 void showKereta(kereta k) {
+    /* {I.S. Diberikan kereta k
+        F.S. menampilkan data perjalanan dari kereta k} */
+
     // print info kereta
     infoKereta info = k.info;
     cout <<
@@ -76,6 +84,7 @@ void showKereta(kereta k) {
 }
 
 int countPenumpang(kereta k){
+    /*  {Fungsi mengembalikan banyak total keseluruhan dari kereta k} */
     int counter = 0;
     adrPenumpang P = k.penumpang.first;
     if (P == NULL){
@@ -91,6 +100,9 @@ int countPenumpang(kereta k){
 
 
 void deleteDisconnectGerbong(kereta &k, string kelas) {
+    /*  {I.S. gerbong dengan kelas yang dicari bisa saja tidak terdapat di kereta k
+         F.S. jika gerbong terdapat pada kereta k maka gerbong dihapus dari kereta k dan penumpang yang menaiki gerbong tersebut diubah menjadi NULL} */
+
     adrGerbong g = searchGerbong(k, kelas);
 
     if (g != NULL) {
@@ -110,6 +122,7 @@ void deleteDisconnectGerbong(kereta &k, string kelas) {
 }
 
 adrGerbong maxPenumpang(kereta k) {
+    /*  {Fungsi mengembalikan alamat gerbong yang memiliki jumlah peumpang paling banyak dari suatu kereta} */
     if (k.gerbong.first != NULL) {
         adrGerbong p = next(k.gerbong.first);
         adrGerbong maxAdr = k.gerbong.first;
@@ -133,6 +146,7 @@ adrGerbong maxPenumpang(kereta k) {
 
 
 adrGerbong minPenumpang(kereta k) {
+    /*  {Fungsi mengembalikan alamat gerbong yang memiliki jumlah penumpang paling sedikit dari suatu gerbong} */
     if (k.gerbong.first != NULL) {
         adrGerbong p = next(k.gerbong.first);
         adrGerbong minAdr = k.gerbong.first;
