@@ -23,8 +23,8 @@ infoKereta createInfoKereta(string nama, string asal, string tujuan, string tang
 }
 
 void connectPenumpangGerbong(kereta &k, string nama, string kelas) {
-    adrGerbong g = searchGerbong(k.gerbong, kelas);
-    adrPenumpang p = searchPenumpang(k.penumpang, nama);
+    adrGerbong g = searchGerbong(k, kelas);
+    adrPenumpang p = searchPenumpang(k, nama);
 
     if (g == NULL || p == NULL) {
         if (g == NULL) {
@@ -91,7 +91,7 @@ int countPenumpang(kereta k){
 
 
 void deleteDisconnectGerbong(kereta &k, string kelas) {
-    adrGerbong g = searchGerbong(k.gerbong, kelas);
+    adrGerbong g = searchGerbong(k, kelas);
 
     if (g != NULL) {
         // disonnect
@@ -105,7 +105,7 @@ void deleteDisconnectGerbong(kereta &k, string kelas) {
             p = next(p);
         }
 
-        deleteGerbong(k.gerbong, kelas); // warn, ini loop seacrh gerbong lagi
+        deleteGerbong(k, kelas); // warn, ini loop seacrh gerbong lagi
     }
 }
 
@@ -113,10 +113,10 @@ adrGerbong maxPenumpang(kereta k) {
     if (k.gerbong.first != NULL) {
         adrGerbong p = next(k.gerbong.first);
         adrGerbong maxAdr = k.gerbong.first;
-        int maxCount = countPenumpangByGerbong(k.penumpang, info(maxAdr).kelas);
+        int maxCount = countPenumpangByGerbong(k, info(maxAdr).kelas);
 
         while (p != NULL) {
-            int temp = countPenumpangByGerbong(k.penumpang, info(p).kelas);
+            int temp = countPenumpangByGerbong(k, info(p).kelas);
             if (temp > maxCount) {
                 maxCount = temp;
                 maxAdr = p;
@@ -136,10 +136,10 @@ adrGerbong minPenumpang(kereta k) {
     if (k.gerbong.first != NULL) {
         adrGerbong p = next(k.gerbong.first);
         adrGerbong minAdr = k.gerbong.first;
-        int minCount = countPenumpangByGerbong(k.penumpang, info(minAdr).kelas);
+        int minCount = countPenumpangByGerbong(k, info(minAdr).kelas);
 
         while (p != NULL) {
-            int temp = countPenumpangByGerbong(k.penumpang, info(p).kelas);
+            int temp = countPenumpangByGerbong(k, info(p).kelas);
             if (temp < minCount) {
                 minCount = temp;
                 minAdr = p;

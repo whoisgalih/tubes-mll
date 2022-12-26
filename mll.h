@@ -76,10 +76,10 @@ infotypePenumpang createInfoPenumpang(string nama, int usia, string jenisKelamin
 adrPenumpang createElmPenumpang(infotypePenumpang X);
 void insertLastPenumpang(kereta &k, adrPenumpang P); //FUNGSIONALITAS DASAR A
 void showPenumpang(kereta k); //FUNGSIONALITAS DASAR C
-adrPenumpang searchPenumpang(listPenumpang LP, string nama); //FUNGSIONALITAS DASAR B
-void deletePenumpang(listPenumpang &LP, string nama);
+adrPenumpang searchPenumpang(kereta k, string nama); //FUNGSIONALITAS DASAR B
+void deletePenumpang(kereta &k, string nama);
 void showPenumpangByGerbong(kereta k, string kelas); //FUNGSIONALITAS DASAR F
-int countPenumpangByGerbong(listPenumpang LP,string kelas); //FUNGSIONALITAS DASAR G
+int countPenumpangByGerbong(kereta k,string kelas); //FUNGSIONALITAS DASAR G
 
 // FUNCTION/PROCEDURE GERBONG
 listGerbong createListGerbong();
@@ -87,9 +87,9 @@ infotypeGerbong createInfoGerbong(string kelas, int maksPenumpang, string konfig
 adrGerbong createElmGerbong(infotypeGerbong X);
 void insertLastGerbong(kereta &k, adrGerbong P); //FUNGSIONALITAS DASAR A
 void showGerbong(kereta k); //FUNGSIONALITAS DASAR C
-adrGerbong searchGerbong(listGerbong LG, string kelas); //FUNGSIONALITAS DASAR B
-void deleteGerbong(listGerbong &LG, string kelas); //FUNGSIONALITAS DASAR E
-int countGerbong(listGerbong LG);
+adrGerbong searchGerbong(kereta k, string kelas); //FUNGSIONALITAS DASAR B
+void deleteGerbong(kereta &k, string kelas); //FUNGSIONALITAS DASAR E
+int countGerbong(kereta k);
 
 // FUNCTION/PROCEDURE KERETA
 kereta createKereta(infoKereta info);
