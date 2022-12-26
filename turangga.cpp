@@ -1,6 +1,8 @@
 #include "mll.h"
 
 kereta turangga(){
+    /* {Fungsi melakukan inisialisasi awal sebuah kereta, dan mengembalikan kereta1 yang list penumpang dan list gerbong nya sudah terisi} */
+
     // CREATE INFO
     infoKereta info = createInfoKereta("Turangga", "Statsiun Bandung (BD)", "Statsiun Yogyakarta (YK)", "Senin, 9 Januari 2023", "18:40", "00:55",0);
 
@@ -40,9 +42,6 @@ kereta turangga(){
     insertLastGerbong(kereta1, q);
     q = createElmGerbong(createInfoGerbong("Eksekutif I", 50, "2-2", 460.000));
     insertLastGerbong(kereta1, q);
-
-    // EDIT PANJANG RANGKAIAN
-//    kereta1.info.panjangRangkaian = countGerbong(kereta1.gerbong);
 
 
     // CONNECT PENUMPANG DENGAN GERBONG
