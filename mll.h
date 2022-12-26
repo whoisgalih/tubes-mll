@@ -108,4 +108,10 @@ kereta turangga();
 void tableHorizontalSparator(int col, int colWidth[]);
 void tableRow(int col, int colWidth[], string data[]);
 
+// MENU
+int menu();
+int menuLokal();
+int menuAntarKota();
+int menuKereta(kereta &k);
+
 #endif // MLL_H_INCLUDED
