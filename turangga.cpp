@@ -41,9 +41,6 @@ kereta turangga(){
     q = createElmGerbong(createInfoGerbong("Eksekutif I", 50, "2-2", 460.000));
     insertLastGerbong(kereta1, q);
 
-    // EDIT PANJANG RANGKAIAN
-//    kereta1.info.panjangRangkaian = countGerbong(kereta1.gerbong);
-
 
     // CONNECT PENUMPANG DENGAN GERBONG
     connectPenumpangGerbong(kereta1,"Abiya","Eksekutif AA");
