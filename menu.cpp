@@ -1,8 +1,9 @@
 #include "mll.h"
 
 // MARK: - Menu
-int menu() {
-    int inputUser;
+string menu() {
+    clearScreen();
+    string inputUser;
     cout << "===== SELAMAT DATANG DI PROGRAM KERETA =====" << endl;
     cout << "1. Kereta Api Lokal" << endl;
     cout << "2. Kereta Api Antar Kota" << endl;
@@ -14,8 +15,9 @@ int menu() {
     return inputUser;
 }
 
-int menuLokal() {
-    int inputUser;
+string menuLokal() {
+    clearScreen();
+    string inputUser;
     cout << "===== SILAHKAN PILIH KERETA =====" << endl;
     cout << "1. Bandung Raya Ekonomi" << endl;
     cout << "0. Back" << endl;
@@ -26,9 +28,10 @@ int menuLokal() {
     return inputUser;
 }
 
-int menuAntarKota()
+string menuAntarKota()
 {
-    int inputUser;
+    clearScreen();
+    string inputUser;
     cout << "===== SILAHKAN PILIH KERETA =====" << endl;
     cout << "1. Turangga" << endl;
     cout << "2. Argo Parahyangan" << endl;
@@ -40,84 +43,155 @@ int menuAntarKota()
     return inputUser;
 }
 
-int menuKereta(kereta &k) {
+string menuKereta(kereta &k) {
+    clearScreen();
+    cout << "=== DATA KERETA ==="<<endl;
     showKereta(k);
     
-    int inputUser;
-    cout << "===== SILAHKAN PILIH KERETA =====" << endl;
-    cout << "1. Menampilkan informasi gerbong" << endl;
-    cout << "2. Menampilkan jumlah penumpang" << endl;
-    cout << "3. Mencari penumpang" << endl;
-    cout << "4. Menambah gerbong" << endl;
-    cout << "5. Menambah penumpang" << endl;
+    string inputUser;
+    cout << "===== SILAHKAN PILIH OPSI =====" << endl;
+    cout << "1. Menambahkan Gerbong" << endl;
+    cout << "2. Menambahkan Penumpang" << endl;
+    cout << "3. Mencari Penumpang" << endl;
+    cout << "4. Menampilkan Data Gerbong" << endl;
+    cout << "5. Menampilkan Data Penumpang" << endl;
+    cout << "6. Menghapus Gerbong" << endl;
+    cout << "7. Menghapus Penumpang" << endl;
+    cout << "8. Menampilkan Data Penumpang Berdasarkan Gerbong" << endl;
+    cout << "9. Menampilkan Jumlah Penumpang Berdasarkan Gerbong" << endl;
+    cout << "10. Menampilkan Data Gerbong Dengan Jumlah Penumpang Paling Sedikit" << endl;
+    cout << "11. Menampilkan Data Gerbong Dengan Jumlah Penumpang Paling Banyak" << endl;
     cout << "0. Back" << endl;
     cout << "Masukkan pilihan: ";
     cin >> inputUser;
     
-    switch (inputUser)
-    {
-        case 1:
-            showGerbong(k);
-            break;
-        case 2:
-            cout << "Jumlah penumpang kereta: " << countPenumpang(k);
-            break;
-        case 3: {
-            string nama;
-            cout << "Nama penumpang yang dicari: ";
-            cin >> nama;
-            
-            adrPenumpang p = searchPenumpang(k, nama);
-            
-            if (p) {
-                cout << "Terdapat penumpang bernama " << nama << endl;
-                cout << "Jenis kelamin\t: " << info(p).jenisKelamin << endl;
-                cout << "Umur\t\t\t: " << info(p).usia << endl;
-                cout << "Gerbong\t\t: " << info(gerbong(p)).kelas << endl;
-                cout << "Kereta\t\t: " << k.info.nama << endl;
-            } else {
-                cout << "Tidak terdapat penumpang bernama " << nama << endl;
-            }
-            
-            break;
+    if (inputUser == "1"){
+        infoGerbong info;
+        
+        cout << "Kelas\t\t\t: ";
+        cin >> info.kelas;
+        cout << "Maksimal Penumpang\t: ";
+        cin >> info.maksPenumpang;
+        cout << "Konfigurasi seat\t: ";
+        cin >> info.konfigurasiSeat;
+        cout << "Harga tiket\t\t: ";
+        cin >> info.hargaTiket;
+        
+        insertLastGerbong(k, createElmGerbong(info));
+        
+        cout << "Gerbong " << info.kelas << " has inserted";
+        pause();
+    }else if (inputUser == "2"){
+        //cout << "Jumlah penumpang kereta: "<<countPenumpang(k);
+        infoPenumpang info;
+        string kelas;
+        
+        cout << "Nama\t\t\t: ";
+        cin >> info.nama;
+        cout << "Usia\t\t\t: ";
+        cin >> info.usia;
+        cout << "Jenis Kelamin\t: ";
+        cin >> info.jenisKelamin;
+        cout << "Gerbong\t: ";
+        getline(cin, kelas, '\n');
+        getline(cin, kelas, '\n');
+        
+        insertLastPenumpang(k, createElmPenumpang(info));
+        connectPenumpangGerbong(k, info.nama, kelas);
+        
+        cout << "Penumpang " << info.nama << " has inserted";
+        pause();
+    }else if (inputUser == "3"){
+        string nama;
+        cout << "Nama penumpang yang dicari: ";
+        cin >> nama;
+        
+        adrPenumpang p = searchPenumpang(k, nama);
+        
+        if (p) {
+            cout << "Terdapat penumpang bernama " << nama << endl;
+            cout << "Jenis kelamin\t: " << info(p).jenisKelamin << endl;
+            cout << "Umur\t\t\t: " << info(p).usia << endl;
+            cout << "Gerbong\t\t\t: " << info(gerbong(p)).kelas << endl;
+            cout << "Kereta\t\t\t: " << k.info.nama << endl;
+        } else {
+            cout << "Tidak terdapat penumpang bernama " << nama << endl;
         }
-        case 4: {
-            infoGerbong info;
+        
+        pause();
+    }else if (inputUser == "4"){
+        showGerbong(k);
+        pause();
+    }else if (inputUser == "5"){
+        showPenumpang(k);
+        pause();
+    }else if (inputUser == "6"){
+        string kelas;
+        cout<<"Masukkan gerbong: ";
+        getline(cin, kelas, '\n');
+        getline(cin, kelas, '\n');
+        deleteDisconnectGerbong(k,kelas);
+        cout << "Gerbong Berhasil Dihapus!"<<endl;
+        pause();
+    }else if (inputUser == "7"){
+        string nama;
+        cout<<"Masukka nama: ";
+        cin>>nama;
+        deletePenumpang(k, nama);
+        cout << "Penumpang Berhasil Dihapus!"<<endl;
+        pause();
+    }else if (inputUser == "8"){
+        // Menampilkan Data Penumpang Berdasarkan Gerbong Loop
+        adrGerbong g = k.gerbong.first;
+        
+        while (g != NULL) {
+            showPenumpangByGerbong(k, g);
             
-            cout << "Kelas\t\t\t: ";
-            cin >> info.kelas;
-            cout << "Maksimal Penumpang\t: ";
-            cin >> info.maksPenumpang;
-            cout << "Konfigurasi seat\t: ";
-            cin >> info.konfigurasiSeat;
-            cout << "Harga tiket\t\t: ";
-            cin >> info.hargaTiket;
-            
-            insertLastGerbong(k, createElmGerbong(info));
-            break;
+            g = next(g);
         }
-        case 5: {
-            infoPenumpang info;
+        pause();
+    }else if (inputUser == "9"){
+        //Menampilkan Jumlah Penumpang Berdasarkan Gerbong Loop
+        cout << "Jumlah penumpang dalam gerbong:" << endl;
+        adrGerbong g = k.gerbong.first;
+        
+        while (g != NULL) {
+            cout << info(g).kelas << "\t: " << countPenumpangByGerbong(k, g) << endl;
             
-            cout << "Nama\t\t\t: ";
-            cin >> info.nama;
-            cout << "Usia\t\t\t: ";
-            cin >> info.usia;
-            cout << "Jenis Kelamin\t: ";
-            cin >> info.jenisKelamin;
-            
-            insertLastPenumpang(k, createElmPenumpang(info));
-            
-            break;
+            g = next(g);
         }
-        case 0:
-            break;
-        default:
-            menuKereta(k);
-            break;
+        pause();
+    }else if (inputUser == "10"){
+        //Menampilkan Gerbong Dengan Jumlah Penumpang Paling Sedikit
+        adrGerbong g = minPenumpang(k);
+        cout << "Gerbong dengan penumpang paling sedikit adalah " << info(g).kelas << endl;
+        cout <<
+        "Banyak Penumpang\t: "<< countPenumpangByGerbong(k, g)<<endl<<
+        "Kelas\t\t\t\t: " << info(g).kelas << endl <<
+        "Maksimal Penumpang\t: " << info(g).maksPenumpang << endl <<
+        "Sisa Kursi\t\t\t: "<<info(g).maksPenumpang - countPenumpangByGerbong(k, g)<<endl<<
+        "Konfigurasi Seat\t: " << info(g).konfigurasiSeat << endl <<
+        "Harga Tiket\t\t\t: " << info(g).hargaTiket << endl << endl;
+        pause();
+    }else if (inputUser == "11"){
+        //Menampilkan Gerbong Dengan Jumlah Penumpang Paling Banyak
+        adrGerbong g = maxPenumpang(k);
+        cout << "Gerbong dengan penumpang paling banyak adalah " << info(g).kelas << endl;
+        cout <<
+        "Banyak Penumpang\t: "<<countPenumpangByGerbong(k, g)<<endl<<
+        "Kelas\t\t\t\t: " << info(g).kelas << endl <<
+        "Maksimal Penumpang\t: " << info(g).maksPenumpang << endl <<
+        "Sisa Kursi\t\t\t: "<<info(g).maksPenumpang - countPenumpangByGerbong(k, g)<<endl<<
+        "Konfigurasi Seat\t: " << info(g).konfigurasiSeat << endl <<
+        "Harga Tiket\t\t\t: " << info(g).hargaTiket << endl << endl;
+        pause();
+    } else {
+        invalidInput();
     }
-    
-    cout << endl;
-    
     return inputUser;
+}
+
+void invalidInput() {
+    cout << "Maaf input tidak valid."<<endl;
+    pause();
 }
