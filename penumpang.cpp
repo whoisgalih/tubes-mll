@@ -77,10 +77,11 @@ void showPenumpang(kereta k){
 
 }
 
-adrPenumpang searchPenumpang(listPenumpang LP, string nama){
+adrPenumpang searchPenumpang(kereta k, string nama){
     /*  {Fungsi akan mengembalikan alamat penumpang jika terdapat pada list penumpang
          atau NULL jika tidak terdapat pada list penumpang}     */
-    adrPenumpang P = LP.first;
+         
+    adrPenumpang P = k.penumpang.first;
 
     while (P!=NULL){
         if (info(P).nama == nama){
@@ -92,27 +93,27 @@ adrPenumpang searchPenumpang(listPenumpang LP, string nama){
     return P;
 }
 
-void deletePenumpang(listPenumpang &LP, string nama){
+void deletePenumpang(kereta &k, string nama){
     /*  {I.S. list penumpang mungkin kosong
          F.S. menghapus penumpang dari list penumpang jika penumpang tersebut ada pada list penumpang}   */
 
     //CEK KALAU KOSONG
-    if (LP.first == NULL){
+    if (k.penumpang.first == NULL){
         cout << "List Kosong"<<endl;
     }else{
         //CEK APAKAH NAMA ADA DI LIST
-        adrPenumpang pen = searchPenumpang(LP, nama);
+        adrPenumpang pen = searchPenumpang(k, nama);
         if (pen != NULL){
-            if (pen == LP.first){ // CEK APAKAH ADA DI FIRST
+            if (pen == k.penumpang.first){ // CEK APAKAH ADA DI FIRST
                 // Delete First
-                LP.first = next(pen);
+                k.penumpang.first = next(pen);
                 next(pen) = NULL;
-                prev(LP.first) = NULL;
-            }else if (pen == LP.last){ // CEK APAKAH ADA DI LAST
+                prev(k.penumpang.first) = NULL;
+            }else if (pen == k.penumpang.last){ // CEK APAKAH ADA DI LAST
                 // Delete Last
-                LP.last = prev(pen);
+                k.penumpang.last = prev(pen);
                 prev(pen) = NULL;
-                next(LP.last) = NULL;
+                next(k.penumpang.last) = NULL;
             }else{
                 // Delete After
                 adrPenumpang Q = prev(pen);
@@ -161,13 +162,15 @@ void showPenumpangByGerbong(kereta k, string kelas){
     }
 }
 
-int countPenumpangByGerbong(listPenumpang LP,string kelas){
+
+int countPenumpangByGerbong(kereta k,string kelas) {
     /*  {Fungsi akan mengembalikan banyak penumpang dari suatu gerbong} */
+
     int counter = 0;
-    if (LP.first==NULL){
+    if (k.penumpang.first==NULL){
         return 0;
     }else{
-        adrPenumpang P = LP.first;
+        adrPenumpang P = k.penumpang.first;
         while (P!=NULL){
             if (gerbong(P)!=NULL){
                 if (info(gerbong(P)).kelas==kelas){
