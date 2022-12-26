@@ -69,8 +69,8 @@ void showGerbong(kereta k){
     }
 }
 
-adrGerbong searchGerbong(listGerbong LG, string kelas){
-    adrGerbong P = LG.first;
+adrGerbong searchGerbong(kereta k, string kelas){
+    adrGerbong P = k.gerbong.first;
 
     while(P!=NULL){
         if (info(P).kelas == kelas){
@@ -82,24 +82,24 @@ adrGerbong searchGerbong(listGerbong LG, string kelas){
     return P;
 }
 
-void deleteGerbong(listGerbong &LG, string kelas) {
+void deleteGerbong(kereta &k, string kelas) {
     //CEK KALAU KOSONG
-    if (LG.first == NULL){
+    if (k.gerbong.first == NULL){
         cout << "List Kosong"<<endl;
     }else{
         //CEK APAKAH NAMA ADA DI LIST
-        adrGerbong ger = searchGerbong(LG, kelas);
+        adrGerbong ger = searchGerbong(k, kelas);
         if (ger != NULL){
-            if (ger == LG.first){ // CEK APAKAH ADA DI FIRST
+            if (ger == k.gerbong.first){ // CEK APAKAH ADA DI FIRST
                 // Delete First
-                LG.first = next(ger);
+                k.gerbong.first = next(ger);
                 next(ger) = NULL;
-                prev(LG.first) = NULL;
-            }else if (ger == LG.last){ // CEK APAKAH ADA DI LAST
+                prev(k.gerbong.first) = NULL;
+            }else if (ger == k.gerbong.last){ // CEK APAKAH ADA DI LAST
                 // Delete Last
-                LG.last = prev(ger);
+                k.gerbong.last = prev(ger);
                 prev(ger) = NULL;
-                next(LG.last) = NULL;
+                next(k.gerbong.last) = NULL;
             }else{
                 // Delete After
                 adrGerbong Q = prev(ger);
@@ -112,11 +112,13 @@ void deleteGerbong(listGerbong &LG, string kelas) {
             cout << "Kelas " << kelas << " tidak terdaftar" << endl;
         }
     }
+    
+    k.info.panjangRangkaian--;
 }
 
-int countGerbong(listGerbong LG){
+int countGerbong(kereta k){
     int counter = 0;
-    adrGerbong P = LG.first;
+    adrGerbong P = k.gerbong.first;
     while(P!=NULL){
         counter ++;
         P = next(P);
