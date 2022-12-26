@@ -49,6 +49,7 @@ void showKereta(kereta k) {
 
     // print info kereta
     infoKereta info = k.info;
+    int totalPenumpang = countPenumpang(k);
     cout <<
     "Nama\t\t\t\t: " << info.nama << endl <<
     "Asal\t\t\t\t: " << info.asal << endl <<
@@ -56,31 +57,8 @@ void showKereta(kereta k) {
     "Tanggal\t\t\t\t: " << info.tanggal << endl <<
     "Jam Berangkat\t\t: " << info.jamBerangkat << endl <<
     "Jam Tiba\t\t\t: " << info.jamTiba << endl <<
-    "Panjang Rangkaian\t: " << info.panjangRangkaian << endl << endl;
-
-//    adrGerbong g = k.gerbong.first;
-//
-//    while (g != NULL) {
-//        // print info gerbong
-//        cout <<
-//        "KELAS\t\t\t\t: " << info(g).kelas << endl <<
-//        "MAKSIMAL PENUMPANG\t: " << info(g).maksPenumpang << endl <<
-//        "KONFIGURASI SEAT\t: "  << info(g).konfigurasiSeat << endl <<
-//        "HARGA TIKET\t\t\t: " << info(g).hargaTiket << endl;
-//
-//        // print info penumpang
-//        adrPenumpang p = k.penumpang.first;
-//        while (p != NULL){
-//            if (gerbong(p) == g) {
-//                cout << info(p).nama << info(p).usia << info(p).jenisKelamin << endl;
-//            }
-//            p = next(p);
-//        }
-//
-//        cout << endl;
-//
-//        g = next(g);
-//    }
+    "Panjang Rangkaian\t: " << info.panjangRangkaian << endl <<
+    "Total Penumpang\t\t: " << totalPenumpang << endl<<endl;
 }
 
 int countPenumpang(kereta k){
@@ -126,10 +104,10 @@ adrGerbong maxPenumpang(kereta k) {
     if (k.gerbong.first != NULL) {
         adrGerbong p = next(k.gerbong.first);
         adrGerbong maxAdr = k.gerbong.first;
-        int maxCount = countPenumpangByGerbong(k, info(maxAdr).kelas);
+        int maxCount = countPenumpangByGerbong(k, maxAdr);
 
         while (p != NULL) {
-            int temp = countPenumpangByGerbong(k, info(p).kelas);
+            int temp = countPenumpangByGerbong(k, p);
             if (temp > maxCount) {
                 maxCount = temp;
                 maxAdr = p;
@@ -150,10 +128,10 @@ adrGerbong minPenumpang(kereta k) {
     if (k.gerbong.first != NULL) {
         adrGerbong p = next(k.gerbong.first);
         adrGerbong minAdr = k.gerbong.first;
-        int minCount = countPenumpangByGerbong(k, info(minAdr).kelas);
+        int minCount = countPenumpangByGerbong(k, minAdr);
 
         while (p != NULL) {
-            int temp = countPenumpangByGerbong(k, info(p).kelas);
+            int temp = countPenumpangByGerbong(k, p);
             if (temp < minCount) {
                 minCount = temp;
                 minAdr = p;

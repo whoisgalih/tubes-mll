@@ -128,13 +128,16 @@ void deletePenumpang(kereta &k, string nama){
     }
 }
 
-void showPenumpangByGerbong(kereta k, string kelas){
+void showPenumpangByGerbong(kereta k, adrGerbong g){
     /*  {I.S. list penumpang pada kereta k mungkin kosong
          F.S. mencetak seluruh penumpang berdasarkan kelas gerbong}   */
-    cout << "Penumpang dari kereta " << k.info.nama << " di gerbong " << kelas << endl;
     if (k.penumpang.first == NULL){
-        cout << "List Penumpang Kosong"<<endl;
-    }else{
+        cout << "List Penumpang Kosong" << endl;
+    } else if (g == NULL) {
+        cout << "Gerbong tidak ada" << endl;
+    } else {
+        cout << "Penumpang dari kereta " << k.info.nama << " di gerbong " << info(g).kelas << endl;
+        
         adrPenumpang P = k.penumpang.first;
 
         int col = 4;
@@ -146,14 +149,12 @@ void showPenumpangByGerbong(kereta k, string kelas){
         tableRow(col, colWidth, data);
         tableHorizontalSparator(col, colWidth);
 
-        while (P!=NULL){
-            if (gerbong(P)!=NULL){
-                if (info(gerbong(P)).kelas == kelas){
-                    string data[] = {info(P).nama, to_string(info(P).usia), info(P).jenisKelamin, info(gerbong(P)).kelas};
-                        tableRow(col, colWidth, data);
-
-                }
+        while (P != NULL){
+            if (gerbong(P) == g){
+                string data[] = {info(P).nama, to_string(info(P).usia), info(P).jenisKelamin, info(gerbong(P)).kelas};
+                    tableRow(col, colWidth, data);
             }
+            
             P = next(P);
         }
 
@@ -163,20 +164,19 @@ void showPenumpangByGerbong(kereta k, string kelas){
 }
 
 
-int countPenumpangByGerbong(kereta k,string kelas) {
+int countPenumpangByGerbong(kereta k, adrGerbong g) {
     /*  {Fungsi akan mengembalikan banyak penumpang dari suatu gerbong} */
 
     int counter = 0;
-    if (k.penumpang.first==NULL){
+    if (k.penumpang.first == NULL || g == NULL){
         return 0;
     }else{
         adrPenumpang P = k.penumpang.first;
         while (P!=NULL){
-            if (gerbong(P)!=NULL){
-                if (info(gerbong(P)).kelas==kelas){
-                    counter++;
-                }
+            if (gerbong(P) == g){
+                counter++;
             }
+            
             P = next(P);
         }
         return counter;

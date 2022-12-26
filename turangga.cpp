@@ -8,30 +8,7 @@ kereta turangga(){
 
     // CREATE KERETA
     kereta kereta1 = createKereta(info);
-
-    // Dummy Penumpang Turangga
-    adrPenumpang p;
-    p = createElmPenumpang(createInfoPenumpang("Abiya", 20, "Laki-laki"));
-    insertLastPenumpang(kereta1, p);
-    p = createElmPenumpang(createInfoPenumpang("Galih", 18, "Laki-laki"));
-    insertLastPenumpang(kereta1, p);
-    p = createElmPenumpang(createInfoPenumpang("Gading", 17, "Laki-laki"));
-    insertLastPenumpang(kereta1, p);
-    p = createElmPenumpang(createInfoPenumpang("Nada", 19, "Perempuan"));
-    insertLastPenumpang(kereta1, p);
-    p = createElmPenumpang(createInfoPenumpang("Dian", 45, "Perempuan"));
-    insertLastPenumpang(kereta1, p);
-    p = createElmPenumpang(createInfoPenumpang("Azumah", 19, "Perempuang"));
-    insertLastPenumpang(kereta1, p);
-    p = createElmPenumpang(createInfoPenumpang("Falah", 19, "Laki-laki"));
-    insertLastPenumpang(kereta1, p);
-    p = createElmPenumpang(createInfoPenumpang("Fajar", 5, "Laki-laki"));
-    insertLastPenumpang(kereta1, p);
-    p = createElmPenumpang(createInfoPenumpang("Makruf", 55, "Laki-laki"));
-    insertLastPenumpang(kereta1, p);
-    p = createElmPenumpang(createInfoPenumpang("Itoh", 72, "Perempuan"));
-    insertLastPenumpang(kereta1, p);
-
+    
     // Dummy Gerbong Turangga
     adrGerbong q;
     q = createElmGerbong(createInfoGerbong("Eksekutif AA", 50, "2-2", 540.000));
@@ -43,8 +20,47 @@ kereta turangga(){
     q = createElmGerbong(createInfoGerbong("Eksekutif I", 50, "2-2", 460.000));
     insertLastGerbong(kereta1, q);
 
-
-    // CONNECT PENUMPANG DENGAN GERBONG
+    // Dummy Penumpang Turangga
+    adrPenumpang p;
+    p = createElmPenumpang(createInfoPenumpang("Abiya", 20, "Laki-laki"));
+    insertLastPenumpang(kereta1, p);
     connectPenumpangGerbong(kereta1,"Abiya","Eksekutif AA");
+    
+    p = createElmPenumpang(createInfoPenumpang("Galih", 18, "Laki-laki"));
+    insertLastPenumpang(kereta1, p);
+    connectPenumpangGerbong(kereta1,"Galih","Eksekutif A");
+    
+    p = createElmPenumpang(createInfoPenumpang("Gading", 17, "Laki-laki"));
+    insertLastPenumpang(kereta1, p);
+    connectPenumpangGerbong(kereta1,"Gading","Eksekutif H");
+    
+    p = createElmPenumpang(createInfoPenumpang("Nada", 19, "Perempuan"));
+    insertLastPenumpang(kereta1, p);
+    connectPenumpangGerbong(kereta1,"Nada","Eksekutif I");
+    
+    p = createElmPenumpang(createInfoPenumpang("Dian", 45, "Perempuan"));
+    insertLastPenumpang(kereta1, p);
+    connectPenumpangGerbong(kereta1,"Dian","Eksekutif A");
+    
+    p = createElmPenumpang(createInfoPenumpang("Azumah", 19, "Perempuang"));
+    insertLastPenumpang(kereta1, p);
+    connectPenumpangGerbong(kereta1,"Azumah","Eksekutif AA");
+    
+    p = createElmPenumpang(createInfoPenumpang("Falah", 19, "Laki-laki"));
+    insertLastPenumpang(kereta1, p);
+    connectPenumpangGerbong(kereta1,"Falah","Eksekutif H");
+    
+    p = createElmPenumpang(createInfoPenumpang("Fajar", 5, "Laki-laki"));
+    insertLastPenumpang(kereta1, p);
+    connectPenumpangGerbong(kereta1,"Fajar","Eksekutif H");
+    
+    p = createElmPenumpang(createInfoPenumpang("Makruf", 55, "Laki-laki"));
+    insertLastPenumpang(kereta1, p);
+    connectPenumpangGerbong(kereta1,"Makruf","Eksekutif I");
+    
+    p = createElmPenumpang(createInfoPenumpang("Itoh", 72, "Perempuan"));
+    insertLastPenumpang(kereta1, p);
+    connectPenumpangGerbong(kereta1,"Itoh","Eksekutif AA");
+
     return kereta1;
 }

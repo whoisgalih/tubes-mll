@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-#include <sstream>
+#include <cstdlib>
 
 #define next(P) (P)->next
 #define prev(P) (P)->prev
@@ -78,8 +78,8 @@ void insertLastPenumpang(kereta &k, adrPenumpang P); //FUNGSIONALITAS DASAR A
 void showPenumpang(kereta k); //FUNGSIONALITAS DASAR C
 adrPenumpang searchPenumpang(kereta k, string nama); //FUNGSIONALITAS DASAR B
 void deletePenumpang(kereta &k, string nama);
-void showPenumpangByGerbong(kereta k, string kelas); //FUNGSIONALITAS DASAR F
-int countPenumpangByGerbong(kereta k,string kelas); //FUNGSIONALITAS DASAR G
+void showPenumpangByGerbong(kereta k, adrGerbong g); //FUNGSIONALITAS DASAR F
+int countPenumpangByGerbong(kereta k, adrGerbong g); //FUNGSIONALITAS DASAR G
 
 // FUNCTION/PROCEDURE GERBONG
 listGerbong createListGerbong();
@@ -109,9 +109,14 @@ void tableHorizontalSparator(int col, int colWidth[]);
 void tableRow(int col, int colWidth[], string data[]);
 
 // MENU
-int menu();
-int menuLokal();
-int menuAntarKota();
-int menuKereta(kereta &k);
+string menu();
+string menuLokal();
+string menuAntarKota();
+string menuKereta(kereta &k);
+void invalidInput();
+
+// Utils
+void clearScreen();
+void pause();
 
 #endif // MLL_H_INCLUDED
