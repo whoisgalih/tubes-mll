@@ -65,7 +65,9 @@ string menuKereta(kereta &k) {
     cout << "Masukkan pilihan: ";
     cin >> inputUser;
     
-    if (inputUser == "1"){
+    if (inputUser == "0") {
+        
+    } else if (inputUser == "1"){
         infoGerbong info;
         
         cout << "Kelas\t\t\t: ";
