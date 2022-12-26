@@ -1,12 +1,13 @@
 #include "mll.h"
 
+#ifdef _WIN32
+#define CLEAR "cls"
+#else //In any other OS
+#define CLEAR "clear"
+#endif
+
 void clearScreen() {
-    #ifdef WINDOWS
-        system("cls");
-    #else
-        // Assume POSIX
-        system("clear");
-    #endif
+    system(CLEAR);
 }
 
 void pause() {
