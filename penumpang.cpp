@@ -45,8 +45,8 @@ void insertLastPenumpang(kereta &k, adrPenumpang P){
         prev(P) = Q;
         k.penumpang.last = P;
     }
-    
-   
+
+
 }
 
 void showPenumpang(kereta k){
@@ -59,23 +59,30 @@ void showPenumpang(kereta k){
         adrPenumpang P;
         P = k.penumpang.first;
 
-        int col = 4;
-        int colWidth[] = {30, 4, 10,10};
+        int col = 5;
+        int colWidth[] = {30,4,10,10,8};
 
-        string data[] = {"NAMA", "USIA", "KELAMIN","GERBONG"};
+        string data[] = {"NAMA", "USIA", "KATEGORI", "KELAMIN", "GERBONG"};
 
         tableHorizontalSparator(col, colWidth);
         tableRow(col, colWidth, data);
         tableHorizontalSparator(col, colWidth);
 
-        string gerbong;
+        string gerbong,kategori;
         while (P!=NULL){
             if (gerbong(P)!=NULL){
                 gerbong = "YA";
             }else{
                 gerbong = "TIDAK";
             }
-            string data[] = {info(P).nama, to_string(info(P).usia), info(P).jenisKelamin,gerbong};
+            if (info(P).usia>0 && info(P).usia<17){
+                kategori = "anak-anak";
+            }else if(info(P).usia>16&&info(P).usia<61){
+                kategori = "dewasa";
+            }else{
+                kategori = "lansia";
+            }
+            string data[] = {info(P).nama, to_string(info(P).usia),kategori, info(P).jenisKelamin,gerbong};
             tableRow(col, colWidth, data);
 
             P = next(P);
@@ -90,7 +97,7 @@ void showPenumpang(kereta k){
 adrPenumpang searchPenumpang(kereta k, string nama){
     /*  {Fungsi akan mengembalikan alamat penumpang jika terdapat pada list penumpang
          atau NULL jika tidak terdapat pada list penumpang}     */
-         
+
     adrPenumpang P = k.penumpang.first;
 
     while (P!=NULL){
@@ -148,7 +155,7 @@ void showPenumpangByGerbong(kereta k, adrGerbong g){
         cout << "Gerbong tidak ada" << endl;
     } else {
         cout << "Penumpang dari kereta " << k.info.nama << " di gerbong " << info(g).kelas << endl;
-        
+
         adrPenumpang P = k.penumpang.first;
 
         int col = 4;
@@ -165,7 +172,7 @@ void showPenumpangByGerbong(kereta k, adrGerbong g){
                 string data[] = {info(P).nama, to_string(info(P).usia), info(P).jenisKelamin, info(gerbong(P)).kelas};
                     tableRow(col, colWidth, data);
             }
-            
+
             P = next(P);
         }
 
@@ -187,7 +194,7 @@ int countPenumpangByGerbong(kereta k, adrGerbong g) {
             if (gerbong(P) == g){
                 counter++;
             }
-            
+
             P = next(P);
         }
         return counter;
