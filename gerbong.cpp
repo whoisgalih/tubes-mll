@@ -60,7 +60,7 @@ void showGerbong(kereta k){
         P = k.gerbong.first;
 
         int col = 4;
-        int colWidth[] = {16, 18, 16, 12};
+        int colWidth[] = {18, 18, 16, 12};
 
         string data[] = {"KELAS", "MAKSIMAL PENUMPANG", "KONFIGURASI SEAT", "HARGA TIKET"};
 
