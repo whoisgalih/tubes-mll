@@ -101,11 +101,11 @@ void deletePenumpang(kereta &k, string nama){
     /*  {I.S. list penumpang mungkin kosong
          F.S. menghapus penumpang dari list penumpang jika penumpang tersebut ada pada list penumpang}   */
 
-    //CEK KALAU KOSONG
+    // CEK KALAU KOSONG
     if (k.penumpang.first == NULL){
         cout << "List Kosong"<<endl;
     }else{
-        //CEK APAKAH NAMA ADA DI LIST
+        // CEK APAKAH NAMA ADA DI LIST
         adrPenumpang pen = searchPenumpang(k, nama);
         if (pen != NULL){
             if (pen == k.penumpang.first){ // CEK APAKAH ADA DI FIRST

@@ -84,7 +84,6 @@ string menuKereta(kereta &k) {
         
         pause();
     }else if (inputUser == "2"){
-        //cout << "Jumlah penumpang kereta: "<<countPenumpang(k);
         infoPenumpang info;
         string kelas;
         
@@ -152,7 +151,7 @@ string menuKereta(kereta &k) {
         }
         pause();
     }else if (inputUser == "9"){
-        //Menampilkan Jumlah Penumpang Berdasarkan Gerbong Loop
+        // Menampilkan Jumlah Penumpang Berdasarkan Gerbong Loop
         cout << "Jumlah penumpang dalam gerbong:" << endl;
         adrGerbong g = k.gerbong.first;
         
@@ -163,7 +162,7 @@ string menuKereta(kereta &k) {
         }
         pause();
     }else if (inputUser == "10"){
-        //Menampilkan Gerbong Dengan Jumlah Penumpang Paling Sedikit
+        // Menampilkan Gerbong Dengan Jumlah Penumpang Paling Sedikit
         adrGerbong g = minPenumpang(k);
         cout << "Gerbong dengan penumpang paling sedikit adalah " << info(g).kelas << endl;
         cout <<
@@ -175,7 +174,7 @@ string menuKereta(kereta &k) {
         "Harga Tiket\t\t\t: " << rupiah(info(g).hargaTiket) << endl << endl;
         pause();
     }else if (inputUser == "11"){
-        //Menampilkan Gerbong Dengan Jumlah Penumpang Paling Banyak
+        // Menampilkan Gerbong Dengan Jumlah Penumpang Paling Banyak
         adrGerbong g = maxPenumpang(k);
         cout << "Gerbong dengan penumpang paling banyak adalah " << info(g).kelas << endl;
         cout <<

@@ -30,7 +30,7 @@ int main()
     cout << "Anggota \t: 1. Galih Akbar Nugraha - 1301213060"<<endl;
     cout << "\t\t  2. Muhammad Abiya Makruf - 1301213157"<<endl<<endl;
     
-    // ALGORITMA MENU
+    // MARK: - Menu
     string inputUser;
     
     // Menu without clear screen
