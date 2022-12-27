@@ -71,7 +71,8 @@ string menuKereta(kereta &k) {
         infoGerbong info;
         
         cout << "Kelas\t\t\t: ";
-        cin >> info.kelas;
+        getline(cin, info.kelas, '\n');
+        getline(cin, info.kelas, '\n');
         cout << "Maksimal Penumpang\t: ";
         cin >> info.maksPenumpang;
         cout << "Konfigurasi seat\t: ";
@@ -81,7 +82,6 @@ string menuKereta(kereta &k) {
         
         insertLastGerbong(k, createElmGerbong(info));
         
-        cout << "Gerbong " << info.kelas << " has inserted";
         pause();
     }else if (inputUser == "2"){
         //cout << "Jumlah penumpang kereta: "<<countPenumpang(k);
@@ -101,7 +101,6 @@ string menuKereta(kereta &k) {
         insertLastPenumpang(k, createElmPenumpang(info));
         connectPenumpangGerbong(k, info.nama, kelas);
         
-        cout << "Penumpang " << info.nama << " has inserted";
         pause();
     }else if (inputUser == "3"){
         string nama;
@@ -133,14 +132,12 @@ string menuKereta(kereta &k) {
         getline(cin, kelas, '\n');
         getline(cin, kelas, '\n');
         deleteDisconnectGerbong(k,kelas);
-        cout << "Gerbong Berhasil Dihapus!"<<endl;
         pause();
     }else if (inputUser == "7"){
         string nama;
         cout<<"Masukka nama: ";
         cin>>nama;
         deletePenumpang(k, nama);
-        cout << "Penumpang Berhasil Dihapus!"<<endl;
         pause();
     }else if (inputUser == "8"){
         // Menampilkan Data Penumpang Berdasarkan Gerbong Loop
@@ -173,7 +170,7 @@ string menuKereta(kereta &k) {
         "Maksimal Penumpang\t: " << info(g).maksPenumpang << endl <<
         "Sisa Kursi\t\t\t: "<<info(g).maksPenumpang - countPenumpangByGerbong(k, g)<<endl<<
         "Konfigurasi Seat\t: " << info(g).konfigurasiSeat << endl <<
-        "Harga Tiket\t\t\t: " << info(g).hargaTiket << endl << endl;
+        "Harga Tiket\t\t\t: " << rupiah(info(g).hargaTiket) << endl << endl;
         pause();
     }else if (inputUser == "11"){
         //Menampilkan Gerbong Dengan Jumlah Penumpang Paling Banyak
@@ -185,7 +182,7 @@ string menuKereta(kereta &k) {
         "Maksimal Penumpang\t: " << info(g).maksPenumpang << endl <<
         "Sisa Kursi\t\t\t: "<<info(g).maksPenumpang - countPenumpangByGerbong(k, g)<<endl<<
         "Konfigurasi Seat\t: " << info(g).konfigurasiSeat << endl <<
-        "Harga Tiket\t\t\t: " << info(g).hargaTiket << endl << endl;
+        "Harga Tiket\t\t\t: " << rupiah(info(g).hargaTiket) << endl << endl;
         pause();
     } else {
         invalidInput();

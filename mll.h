@@ -88,7 +88,7 @@ adrGerbong createElmGerbong(infotypeGerbong X);
 void insertLastGerbong(kereta &k, adrGerbong P); //FUNGSIONALITAS DASAR A
 void showGerbong(kereta k); //FUNGSIONALITAS DASAR C
 adrGerbong searchGerbong(kereta k, string kelas); //FUNGSIONALITAS DASAR B
-void deleteGerbong(kereta &k, string kelas); //FUNGSIONALITAS DASAR E
+void deleteGerbong(kereta &k, adrGerbong g); //FUNGSIONALITAS DASAR E
 int countGerbong(kereta k);
 
 // FUNCTION/PROCEDURE KERETA
@@ -118,5 +118,6 @@ void invalidInput();
 // Utils
 void clearScreen();
 void pause();
+string rupiah(int i);
 
 #endif // MLL_H_INCLUDED

@@ -40,6 +40,8 @@ void connectPenumpangGerbong(kereta &k, string nama, string kelas) {
         }
     } else {
         gerbong(p) = g;
+        
+        cout << "Penumpang " << info(p).nama << " telah ditambahkan ke gerbong " << info(g).kelas << endl;
     }
 }
 
@@ -95,7 +97,11 @@ void deleteDisconnectGerbong(kereta &k, string kelas) {
             p = next(p);
         }
 
-        deleteGerbong(k, kelas); // warn, ini loop seacrh gerbong lagi
+        // delete gerbong
+        deleteGerbong(k, g);
+        cout << "Gerbong " << kelas << " berhasil di hapus" << endl;
+    } else {
+        cout << "Gerbong " << kelas << " tidak ditemukan" << endl;
     }
 }
 

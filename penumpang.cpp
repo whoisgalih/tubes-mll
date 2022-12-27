@@ -43,6 +43,8 @@ void insertLastPenumpang(kereta &k, adrPenumpang P){
         prev(P) = Q;
         k.penumpang.last = P;
     }
+    
+    cout << "Penumpang " << info(P).nama << " berhasil ditambahkan ke kereta " << k.info.nama << endl;
 }
 
 void showPenumpang(kereta k){
@@ -122,8 +124,9 @@ void deletePenumpang(kereta &k, string nama){
                 next(pen) = NULL;
                 prev(pen) = NULL;
             }
+            cout << "Penumpang "<< nama << " behasil dihapus" << endl;
         } else {
-            cout << "Nama "<< nama << " tidak terdaftar" << endl;
+            cout << "Penumpang "<< nama << " tidak terdaftar" << endl;
         }
     }
 }
