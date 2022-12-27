@@ -42,8 +42,6 @@ void connectPenumpangGerbong(kereta &k, string nama, string kelas) {
         }
     } else {
         gerbong(p) = g;
-
-        cout << "Penumpang " << info(p).nama << " telah ditambahkan ke gerbong " << info(g).kelas << endl;
     }
 }
 
