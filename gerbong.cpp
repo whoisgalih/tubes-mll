@@ -103,7 +103,7 @@ void deleteGerbong(kereta &k, adrGerbong g) {
     /*  {I.S. list gerbong mungkin kosong
          F.S. menghapus gerbong dari list gerbong jika gerbong tersebut ada pada list gerbong}   */
          
-    //CEK KALAU KOSONG
+    // CEK KALAU KOSONG
     if (k.gerbong.first == NULL){
         cout << "List Kosong"<<endl;
     }else{

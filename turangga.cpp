@@ -1,5 +1,6 @@
 #include "mll.h"
 
+// MARK: - Init kereta Turangga
 kereta turangga(){
     /* {Fungsi melakukan inisialisasi awal sebuah kereta, dan mengembalikan kereta1 yang list penumpang dan list gerbong nya sudah terisi} */
 
