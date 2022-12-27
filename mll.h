@@ -61,6 +61,7 @@ struct listPenumpang{
 struct infoKereta {
     string nama, asal, tujuan, tanggal, jamBerangkat, jamTiba;
     int panjangRangkaian;
+    bool makan;
 };
 
 struct kereta {
@@ -93,7 +94,7 @@ int countGerbong(kereta k);
 
 // MARK: - Function/Procedure Kereta
 kereta createKereta(infoKereta info);
-infoKereta createInfoKereta(string nama, string asal, string tujuan, string tanggal, string jamBerangkat, string jamTiba, int panjangRangkaian);
+infoKereta createInfoKereta(string nama, string asal, string tujuan, string tanggal, string jamBerangkat, string jamTiba, int panjangRangkaian, bool makan);
 void connectPenumpangGerbong(kereta &k, string nama, string kelas); //FUNGSIONALITAS DASAR D
 void showKereta(kereta k);
 int countPenumpang(kereta k);
