@@ -11,7 +11,7 @@ kereta createKereta(infoKereta info) {
     return k;
 }
 
-infoKereta createInfoKereta(string nama, string asal, string tujuan, string tanggal, string jamBerangkat, string jamTiba, int panjangRangkaian) {
+infoKereta createInfoKereta(string nama, string asal, string tujuan, string tanggal, string jamBerangkat, string jamTiba, int panjangRangkaian,bool makan) {
     /*  {Fungsi menginisialisasi info dan mengembalikan info yang sudah terisi } */
     infoKereta info;
     info.nama = nama;
@@ -21,6 +21,7 @@ infoKereta createInfoKereta(string nama, string asal, string tujuan, string tang
     info.jamBerangkat = jamBerangkat;
     info.jamTiba = jamTiba;
     info.panjangRangkaian = panjangRangkaian;
+    info.makan = makan;
 
     return info;
 }
@@ -28,7 +29,7 @@ infoKereta createInfoKereta(string nama, string asal, string tujuan, string tang
 void connectPenumpangGerbong(kereta &k, string nama, string kelas) {
     /* {I.S. diberikan kereta k yang mungkin kosong dan nama, kelas gerbong yang mungkin tidak ada pada list
         F.S. penumpang dengan nama yang diberikan terhubung dengan gerbong yang memiliki kelas yang diberikan} */
-        
+
     adrGerbong g = searchGerbong(k, kelas);
     adrPenumpang p = searchPenumpang(k, nama);
 
@@ -41,7 +42,7 @@ void connectPenumpangGerbong(kereta &k, string nama, string kelas) {
         }
     } else {
         gerbong(p) = g;
-        
+
         cout << "Penumpang " << info(p).nama << " telah ditambahkan ke gerbong " << info(g).kelas << endl;
     }
 }
@@ -53,15 +54,22 @@ void showKereta(kereta k) {
     // print info kereta
     infoKereta info = k.info;
     int totalPenumpang = countPenumpang(k);
+    string makan;
+    if (info.makan){
+        makan = "YA";
+    }else{
+        makan = "TIDAK";
+    }
     cout <<
-    "Nama\t\t\t\t: " << info.nama << endl <<
-    "Asal\t\t\t\t: " << info.asal << endl <<
-    "Tujuan\t\t\t\t: " << info.tujuan << endl <<
-    "Tanggal\t\t\t\t: " << info.tanggal << endl <<
+    "Nama Kereta\t\t: " << info.nama << endl <<
+    "Asal\t\t\t: " << info.asal << endl <<
+    "Tujuan\t\t\t: " << info.tujuan << endl <<
+    "Tanggal\t\t\t: " << info.tanggal << endl <<
     "Jam Berangkat\t\t: " << info.jamBerangkat << endl <<
-    "Jam Tiba\t\t\t: " << info.jamTiba << endl <<
+    "Jam Tiba\t\t: " << info.jamTiba << endl <<
     "Panjang Rangkaian\t: " << info.panjangRangkaian << endl <<
-    "Total Penumpang\t\t: " << totalPenumpang << endl<<endl;
+    "Total Penumpang\t\t: " << totalPenumpang << endl<<
+    "Terdapat Gerbong Makan\t: "<<makan<<endl<<endl;
 }
 
 int countPenumpang(kereta k){
