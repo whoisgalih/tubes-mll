@@ -2,20 +2,21 @@
 
 int main()
 {
-    // INISIALISASI KERETA ANTAR KOTA TURANGGA
+    //  MARK: - Inisialisasi Kereta
+    //  Inisialisasi Kereta Antar Kota: Turangga
     kereta KeretaTurangga;
     KeretaTurangga = turangga();
     
-    //    // INISIALISASI KERETA ANTAR KOTA ARGO PARAHYANGAN
+    //    // Inisialisasi Kereta Antar Kota: Argo Parahyangan
     //    kereta KeretaTurangga;
     //    KeretaTurangga = turangga();
     //
-    //    // INISIALISASI KERETA LOKAL BANDUNG RAYA EKONOMI
+    //    // Inisialisasi Kereta Lokal: Bandung Raya Ekonomi
     //    kereta KeretaTurangga;
     //    KeretaTurangga = turangga();
     
     
-    //IDENTITAS
+    // MARK: - Identitas
     clearScreen();
     cout <<
     "  ~~~~ ____   |~~~~~~~~~~~~~~~~~|\n"

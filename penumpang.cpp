@@ -1,4 +1,6 @@
 #include "mll.h"
+
+// MARK: - Penumpang
 listPenumpang createListPenumpang(){
     /*  {Fungsi menginisialisasi list penumpang dan mengembalikan list penumpang yang kosong}
         Catatan : ada pointer first dan last    */
