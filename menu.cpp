@@ -88,7 +88,8 @@ string menuKereta(kereta &k) {
         string kelas;
         
         cout << "Nama\t\t\t: ";
-        cin >> info.nama;
+        getline(cin, info.nama, '\n');
+        getline(cin, info.nama, '\n');
         cout << "Usia\t\t\t: ";
         cin >> info.usia;
         cout << "Jenis Kelamin\t: ";
@@ -106,7 +107,8 @@ string menuKereta(kereta &k) {
     }else if (inputUser == "3"){
         string nama;
         cout << "Nama penumpang yang dicari: ";
-        cin >> nama;
+        getline(cin, nama, '\n');
+        getline(cin, nama, '\n');
         
         adrPenumpang p = searchPenumpang(k, nama);
         
@@ -137,7 +139,8 @@ string menuKereta(kereta &k) {
     }else if (inputUser == "7"){
         string nama;
         cout<<"Masukka nama: ";
-        cin>>nama;
+        getline(cin, nama, '\n');
+        getline(cin, nama, '\n');
         deletePenumpang(k, nama);
         pause();
     }else if (inputUser == "8"){
