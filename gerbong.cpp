@@ -44,6 +44,8 @@ void insertLastGerbong(kereta &k, adrGerbong P){
         k.gerbong.last = P;
     }
     k.info.panjangRangkaian++;
+    
+    cout << "Gerbong " << info(P).kelas << " berhasil ditambahkan ke kereta " << k.info.nama << endl;
 }
 
 void showGerbong(kereta k){
@@ -66,7 +68,7 @@ void showGerbong(kereta k){
         tableHorizontalSparator(col, colWidth);
 
         while (P!=NULL){
-            string data[] = {info(P).kelas, to_string(info(P).maksPenumpang), info(P).konfigurasiSeat, to_string(info(P).hargaTiket)};
+            string data[] = {info(P).kelas, to_string(info(P).maksPenumpang), info(P).konfigurasiSeat, rupiah(info(P).hargaTiket)};
 
 
             tableRow(col, colWidth, data);
@@ -96,7 +98,7 @@ adrGerbong searchGerbong(kereta k, string kelas){
 }
 
 
-void deleteGerbong(kereta &k, string kelas) {
+void deleteGerbong(kereta &k, adrGerbong g) {
     /*  {I.S. list gerbong mungkin kosong
          F.S. menghapus gerbong dari list gerbong jika gerbong tersebut ada pada list gerbong}   */
          
@@ -104,29 +106,27 @@ void deleteGerbong(kereta &k, string kelas) {
     if (k.gerbong.first == NULL){
         cout << "List Kosong"<<endl;
     }else{
-        //CEK APAKAH NAMA ADA DI LIST
-        adrGerbong ger = searchGerbong(k, kelas);
-        if (ger != NULL){
-            if (ger == k.gerbong.first){ // CEK APAKAH ADA DI FIRST
+        if (g != NULL){
+            if (g == k.gerbong.first){ // CEK APAKAH ADA DI FIRST
                 // Delete First
-                k.gerbong.first = next(ger);
-                next(ger) = NULL;
+                k.gerbong.first = next(g);
+                next(g) = NULL;
                 prev(k.gerbong.first) = NULL;
-            }else if (ger == k.gerbong.last){ // CEK APAKAH ADA DI LAST
+            }else if (g == k.gerbong.last){ // CEK APAKAH ADA DI LAST
                 // Delete Last
-                k.gerbong.last = prev(ger);
-                prev(ger) = NULL;
+                k.gerbong.last = prev(g);
+                prev(g) = NULL;
                 next(k.gerbong.last) = NULL;
             }else{
                 // Delete After
-                adrGerbong Q = prev(ger);
-                next(Q) = next(ger);
-                prev(next(ger)) = Q;
-                next(ger) = NULL;
-                prev(ger) = NULL;
+                adrGerbong Q = prev(g);
+                next(Q) = next(g);
+                prev(next(g)) = Q;
+                next(g) = NULL;
+                prev(g) = NULL;
             }
         } else {
-            cout << "Kelas " << kelas << " tidak terdaftar" << endl;
+            cout << "Kelas " << info(g).kelas << " tidak terdaftar" << endl;
         }
     }
     
