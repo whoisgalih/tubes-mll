@@ -7,10 +7,10 @@ int main()
     kereta KeretaTurangga;
     KeretaTurangga = turangga();
 
-    //    // Inisialisasi Kereta Antar Kota: Argo Parahyangan
-    //    kereta KeretaTurangga;
-    //    KeretaTurangga = turangga();
-    //
+    // Inisialisasi Kereta Antar Kota: Argo Parahyangan
+    kereta KeretaArgoParahyangan;
+    KeretaArgoParahyangan = argoParahyangan();
+
     //    // Inisialisasi Kereta Lokal: Bandung Raya Ekonomi
     //    kereta KeretaTurangga;
     //    KeretaTurangga = turangga();
@@ -67,7 +67,10 @@ int main()
                         inputUser = menuKereta(KeretaTurangga);
                     }
                 }else if (inputUser == "2"){
-                    //Menu Gerbong
+                    inputUser = menuKereta(KeretaArgoParahyangan);
+                    while (inputUser!="0"){
+                        inputUser = menuKereta(KeretaArgoParahyangan);
+                    }
                 }else{
                     invalidInput();
                 }

@@ -12,56 +12,56 @@ kereta turangga(){
 
     // Dummy Gerbong Turangga
     adrGerbong q;
-    q = createElmGerbong(createInfoGerbong("Eksekutif AA", 50, "2-2", 540.000));
+    q = createElmGerbong(createInfoGerbong("Eksekutif AA", 50, "2-2", 540000));
     insertLastGerbong(kereta1, q);
-    q = createElmGerbong(createInfoGerbong("Eksekutif A", 50, "2-2", 510.000));
+    q = createElmGerbong(createInfoGerbong("Eksekutif A", 50, "2-2", 510000));
     insertLastGerbong(kereta1, q);
-    q = createElmGerbong(createInfoGerbong("Eksekutif H", 50, "2-2", 480.000));
+    q = createElmGerbong(createInfoGerbong("Eksekutif H", 50, "2-2", 480000));
     insertLastGerbong(kereta1, q);
-    q = createElmGerbong(createInfoGerbong("Eksekutif I", 50, "2-2", 460.000));
+    q = createElmGerbong(createInfoGerbong("Eksekutif I", 50, "2-2", 460000));
     insertLastGerbong(kereta1, q);
 
     // Dummy Penumpang Turangga
     adrPenumpang p;
-    p = createElmPenumpang(createInfoPenumpang("Abiya", 20, "Laki-laki"));
+    p = createElmPenumpang(createInfoPenumpang("Muhammad Abiya", 20, "Laki-laki"));
     insertLastPenumpang(kereta1, p);
-    connectPenumpangGerbong(kereta1,"Abiya","Eksekutif AA");
+    connectPenumpangGerbong(kereta1,"Muhammad Abiya","Eksekutif AA");
 
-    p = createElmPenumpang(createInfoPenumpang("Galih", 18, "Laki-laki"));
+    p = createElmPenumpang(createInfoPenumpang("Galih Akbar", 18, "Laki-laki"));
     insertLastPenumpang(kereta1, p);
-    connectPenumpangGerbong(kereta1,"Galih","Eksekutif A");
+    connectPenumpangGerbong(kereta1,"Galih Akbar","Eksekutif A");
 
-    p = createElmPenumpang(createInfoPenumpang("Gading", 17, "Laki-laki"));
+    p = createElmPenumpang(createInfoPenumpang("Gading Makruf", 17, "Laki-laki"));
     insertLastPenumpang(kereta1, p);
-    connectPenumpangGerbong(kereta1,"Gading","Eksekutif H");
+    connectPenumpangGerbong(kereta1,"Gading Makruf","Eksekutif H");
 
-    p = createElmPenumpang(createInfoPenumpang("Nada", 19, "Perempuan"));
+    p = createElmPenumpang(createInfoPenumpang("Nada Raudah", 19, "Perempuan"));
     insertLastPenumpang(kereta1, p);
-    connectPenumpangGerbong(kereta1,"Nada","Eksekutif I");
+    connectPenumpangGerbong(kereta1,"Nada Raudah","Eksekutif I");
 
-    p = createElmPenumpang(createInfoPenumpang("Dian", 45, "Perempuan"));
+    p = createElmPenumpang(createInfoPenumpang("Dian Irdianingsih", 45, "Perempuan"));
     insertLastPenumpang(kereta1, p);
-    connectPenumpangGerbong(kereta1,"Dian","Eksekutif A");
+    connectPenumpangGerbong(kereta1,"Dian Irdianingsih","Eksekutif A");
 
-    p = createElmPenumpang(createInfoPenumpang("Azumah", 19, "Perempuang"));
+    p = createElmPenumpang(createInfoPenumpang("Azumah Yasmin", 19, "Perempuang"));
     insertLastPenumpang(kereta1, p);
-    connectPenumpangGerbong(kereta1,"Azumah","Eksekutif AA");
+    connectPenumpangGerbong(kereta1,"Azumah Yasmin","Eksekutif AA");
 
-    p = createElmPenumpang(createInfoPenumpang("Falah", 19, "Laki-laki"));
+    p = createElmPenumpang(createInfoPenumpang("Falah Asyraf", 19, "Laki-laki"));
     insertLastPenumpang(kereta1, p);
-    connectPenumpangGerbong(kereta1,"Falah","Eksekutif H");
+    connectPenumpangGerbong(kereta1,"Falah Asyraf","Eksekutif H");
 
-    p = createElmPenumpang(createInfoPenumpang("Fajar", 5, "Laki-laki"));
+    p = createElmPenumpang(createInfoPenumpang("Fajar Dwi", 5, "Laki-laki"));
     insertLastPenumpang(kereta1, p);
-    connectPenumpangGerbong(kereta1,"Fajar","Eksekutif H");
+    connectPenumpangGerbong(kereta1,"Fajar Dwi","Eksekutif H");
 
-    p = createElmPenumpang(createInfoPenumpang("Makruf", 55, "Laki-laki"));
+    p = createElmPenumpang(createInfoPenumpang("Makruf Amal", 55, "Laki-laki"));
     insertLastPenumpang(kereta1, p);
-    connectPenumpangGerbong(kereta1,"Makruf","Eksekutif I");
+    connectPenumpangGerbong(kereta1,"Makruf Amal","Eksekutif I");
 
-    p = createElmPenumpang(createInfoPenumpang("Itoh", 72, "Perempuan"));
+    p = createElmPenumpang(createInfoPenumpang("Itoh Masitoh", 72, "Perempuan"));
     insertLastPenumpang(kereta1, p);
-    connectPenumpangGerbong(kereta1,"Itoh","Eksekutif AA");
+    connectPenumpangGerbong(kereta1,"Itoh Masitoh","Eksekutif AA");
 
     return kereta1;
 }

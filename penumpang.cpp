@@ -59,17 +59,23 @@ void showPenumpang(kereta k){
         adrPenumpang P;
         P = k.penumpang.first;
 
-        int col = 3;
-        int colWidth[] = {8, 4, 10};
+        int col = 4;
+        int colWidth[] = {30, 4, 10,10};
 
-        string data[] = {"NAMA", "USIA", "KELAMIN"};
+        string data[] = {"NAMA", "USIA", "KELAMIN","GERBONG"};
 
         tableHorizontalSparator(col, colWidth);
         tableRow(col, colWidth, data);
         tableHorizontalSparator(col, colWidth);
 
+        string gerbong;
         while (P!=NULL){
-            string data[] = {info(P).nama, to_string(info(P).usia), info(P).jenisKelamin};
+            if (gerbong(P)!=NULL){
+                gerbong = "YA";
+            }else{
+                gerbong = "TIDAK";
+            }
+            string data[] = {info(P).nama, to_string(info(P).usia), info(P).jenisKelamin,gerbong};
             tableRow(col, colWidth, data);
 
             P = next(P);
@@ -146,7 +152,7 @@ void showPenumpangByGerbong(kereta k, adrGerbong g){
         adrPenumpang P = k.penumpang.first;
 
         int col = 4;
-        int colWidth[] = {8, 4, 10, 12};
+        int colWidth[] = {30, 4, 10, 18};
 
         string data[] = {"NAMA", "USIA", "KELAMIN", "KELAS"};
 
