@@ -6,7 +6,7 @@ int main()
     //  Inisialisasi Kereta Antar Kota: Turangga
     kereta KeretaTurangga;
     KeretaTurangga = turangga();
-    
+
     //    // Inisialisasi Kereta Antar Kota: Argo Parahyangan
     //    kereta KeretaTurangga;
     //    KeretaTurangga = turangga();
@@ -14,8 +14,8 @@ int main()
     //    // Inisialisasi Kereta Lokal: Bandung Raya Ekonomi
     //    kereta KeretaTurangga;
     //    KeretaTurangga = turangga();
-    
-    
+
+
     // MARK: - Identitas
     clearScreen();
     cout <<
@@ -23,16 +23,17 @@ int main()
     " Y_,___|[]|   | GABI TANPA ZAL! |\n"
     "{|_|_|_|PU|_,_|_________________|\n"
     "//oo---OO=OO     OOO     OOO\n\n";
-    
+
     cout << "========== TUGAS BESAR =========="<<endl;
     cout << "Kelompok \t: Gabi Tanpa Zal"<<endl;
-    cout << "Tema \t\t: "<<endl;
+    cout << "Tema \t\t: Multi Linked-List A"<<endl;
+    cout << "Judul \t\t: Kereta"<<endl;
     cout << "Anggota \t: 1. Galih Akbar Nugraha - 1301213060"<<endl;
     cout << "\t\t  2. Muhammad Abiya Makruf - 1301213157"<<endl<<endl;
-    
+
     // MARK: - Menu
     string inputUser;
-    
+
     // Menu without clear screen
     cout << "===== SELAMAT DATANG DI PROGRAM KERETA =====" << endl;
     cout << "1. Kereta Api Lokal" << endl;
@@ -41,10 +42,10 @@ int main()
     cout << "Masukkan pilihan: ";
     cin >> inputUser;
     cout << endl;
-    
+
     while (inputUser !="0"){
         if (inputUser == "1"){
-            
+
             inputUser = menuLokal();
             while (inputUser!="0"){
                 if (inputUser == "1"){
@@ -55,9 +56,9 @@ int main()
                 inputUser = menuLokal();
             }
             cout<<endl;
-            
+
         }else if (inputUser == "2"){
-            
+
             inputUser = menuAntarKota();
             while (inputUser!="0"){
                 if (inputUser == "1"){
@@ -73,17 +74,17 @@ int main()
                 inputUser = menuAntarKota();
             }
             cout<<endl;
-            
+
         }else{
-            
+
             invalidInput();
-            
+
         }
         inputUser = menu();
     }
-    
+
     cout<< "Program Selesai. Terima Kasih."<<endl;
-    
-    
+
+
     return 0;
 }
