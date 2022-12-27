@@ -11,9 +11,9 @@ int main()
     kereta KeretaArgoParahyangan;
     KeretaArgoParahyangan = argoParahyangan();
 
-    //    // Inisialisasi Kereta Lokal: Bandung Raya Ekonomi
-    //    kereta KeretaTurangga;
-    //    KeretaTurangga = turangga();
+    //Inisialisasi Kereta Lokal: Bandung Raya Ekonomi
+    kereta KeretaBandungRayaEkonomi;
+    KeretaBandungRayaEkonomi = bandungRayaEkonomi();
 
 
     // MARK: - Identitas
@@ -49,7 +49,7 @@ int main()
             inputUser = menuLokal();
             while (inputUser!="0"){
                 if (inputUser == "1"){
-                    inputUser = menuKereta(KeretaTurangga);
+                    inputUser = menuKereta(KeretaBandungRayaEkonomi);
                 }else{
                     invalidInput();
                 }

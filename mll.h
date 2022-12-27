@@ -105,6 +105,7 @@ adrGerbong minPenumpang(kereta k); //FUNGSIONALITAS DASAR I
 // MARK: - Inisialisasi
 kereta turangga();
 kereta argoParahyangan();
+kereta bandungRayaEkonomi();
 
 // MARK: - Table
 void tableHorizontalSparator(int col, int colWidth[]);
