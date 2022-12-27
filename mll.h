@@ -11,7 +11,7 @@ using namespace std;
 #define info(P) (P)->info
 #define gerbong(P) (P)->gerbong
 
-//GERBONG
+// MARK: - Gerbong
 struct infoGerbong{
     string kelas;
     int maksPenumpang;
@@ -33,7 +33,7 @@ struct listGerbong{
     adrGerbong last;
 };
 
-//PENUMPANG
+// MARK: - Penumpang
 struct infoPenumpang{
     string nama;
     int usia;
@@ -57,7 +57,7 @@ struct listPenumpang{
 };
 
 
-//KERETA
+// MARK: - Kereta
 struct infoKereta {
     string nama, asal, tujuan, tanggal, jamBerangkat, jamTiba;
     int panjangRangkaian;
@@ -70,7 +70,7 @@ struct kereta {
 };
 
 
-// FUNCTION/PROCEDURE PENUMPANG
+// MARK: - Function/Procedure Penumpang
 listPenumpang createListPenumpang();
 infotypePenumpang createInfoPenumpang(string nama, int usia, string jenisKelamin);
 adrPenumpang createElmPenumpang(infotypePenumpang X);
@@ -81,7 +81,7 @@ void deletePenumpang(kereta &k, string nama);
 void showPenumpangByGerbong(kereta k, adrGerbong g); //FUNGSIONALITAS DASAR F
 int countPenumpangByGerbong(kereta k, adrGerbong g); //FUNGSIONALITAS DASAR G
 
-// FUNCTION/PROCEDURE GERBONG
+// MARK: - Function/Procedure Gerbong
 listGerbong createListGerbong();
 infotypeGerbong createInfoGerbong(string kelas, int maksPenumpang, string konfigurasiSeat, int hargaTiket);
 adrGerbong createElmGerbong(infotypeGerbong X);
@@ -91,7 +91,7 @@ adrGerbong searchGerbong(kereta k, string kelas); //FUNGSIONALITAS DASAR B
 void deleteGerbong(kereta &k, adrGerbong g); //FUNGSIONALITAS DASAR E
 int countGerbong(kereta k);
 
-// FUNCTION/PROCEDURE KERETA
+// MARK: - Function/Procedure Kereta
 kereta createKereta(infoKereta info);
 infoKereta createInfoKereta(string nama, string asal, string tujuan, string tanggal, string jamBerangkat, string jamTiba, int panjangRangkaian);
 void connectPenumpangGerbong(kereta &k, string nama, string kelas); //FUNGSIONALITAS DASAR D
@@ -101,21 +101,21 @@ void deleteDisconnectGerbong(kereta &k, string kelas); //FUNGSIONALITAS DASAR E
 adrGerbong maxPenumpang(kereta k); //FUNGSIONALITAS DASAR H
 adrGerbong minPenumpang(kereta k); //FUNGSIONALITAS DASAR I
 
-// INISIALISASI
+// MARK: - Inisialisasi
 kereta turangga();
 
-// table
+// MARK: - Table
 void tableHorizontalSparator(int col, int colWidth[]);
 void tableRow(int col, int colWidth[], string data[]);
 
-// MENU
+// MARK: - Menu
 string menu();
 string menuLokal();
 string menuAntarKota();
 string menuKereta(kereta &k);
 void invalidInput();
 
-// Utils
+// MARK: - Utils
 void clearScreen();
 void pause();
 string rupiah(int i);

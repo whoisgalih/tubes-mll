@@ -1,5 +1,6 @@
 #include "mll.h"
-//GERBONG
+
+// MARK: - Gerbong
 listGerbong createListGerbong(){
     /*  {Fungsi menginisialisasi list gerbong dan mengembalikan list gerbong yang kosong}
          Catatan : ada pointer first dan last   */

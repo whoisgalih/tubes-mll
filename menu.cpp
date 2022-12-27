@@ -98,9 +98,11 @@ string menuKereta(kereta &k) {
         getline(cin, kelas, '\n');
         getline(cin, kelas, '\n');
         
-        insertLastPenumpang(k, createElmPenumpang(info));
-        connectPenumpangGerbong(k, info.nama, kelas);
-        
+        if (searchGerbong(k, kelas) == NULL) {
+            insertLastPenumpang(k, createElmPenumpang(info));
+            connectPenumpangGerbong(k, info.nama, kelas);
+        }
+            
         pause();
     }else if (inputUser == "3"){
         string nama;

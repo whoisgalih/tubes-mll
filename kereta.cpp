@@ -1,5 +1,6 @@
 #include "mll.h"
-// Kereta
+
+// MARK: - Kereta
 kereta createKereta(infoKereta info) {
     /*  {Fungsi menginisialisasi kereta dan mengembalikan kereta dengan list penumpang dan list gerbong nya kosong} */
     kereta k;
