@@ -46,7 +46,7 @@ void insertLastPenumpang(kereta &k, adrPenumpang P){
         k.penumpang.last = P;
     }
     
-    cout << "Penumpang " << info(P).nama << " berhasil ditambahkan ke kereta " << k.info.nama << endl;
+   
 }
 
 void showPenumpang(kereta k){
