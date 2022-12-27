@@ -87,20 +87,21 @@ string menuKereta(kereta &k) {
         infoPenumpang info;
         string kelas;
 
-        cout << "Nama\t\t\t: ";
+        cout << "Nama\t\t: ";
         getline(cin, info.nama, '\n');
         getline(cin, info.nama, '\n');
-        cout << "Usia\t\t\t: ";
+        cout << "Usia\t\t: ";
         cin >> info.usia;
         cout << "Jenis Kelamin\t: ";
-        cin >> info.jenisKelamin;
-        cout << "Gerbong\t: ";
-        getline(cin, kelas, '\n');
+        getline(cin, info.jenisKelamin, '\n');
+        getline(cin, info.jenisKelamin, '\n');
+        cout << "Gerbong\t\t: ";
         getline(cin, kelas, '\n');
 
         if (searchGerbong(k, kelas) != NULL) {
             insertLastPenumpang(k, createElmPenumpang(info));
             connectPenumpangGerbong(k, info.nama, kelas);
+            cout << "Penumpang " << info.nama << " berhasil ditambahkan ke kereta " << k.info.nama << " di gerbong " << kelas << endl;
         }else{
             cout << "Gerbong Tidak Ada. Insert Penumpang Gagal!"<<endl;
         }

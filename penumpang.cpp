@@ -46,7 +46,7 @@ void insertLastPenumpang(kereta &k, adrPenumpang P){
         k.penumpang.last = P;
     }
     
-    cout << "Penumpang " << info(P).nama << " berhasil ditambahkan ke kereta " << k.info.nama << endl;
+   
 }
 
 void showPenumpang(kereta k){
@@ -60,7 +60,7 @@ void showPenumpang(kereta k){
         P = k.penumpang.first;
 
         int col = 3;
-        int colWidth[] = {8, 4, 10};
+        int colWidth[] = {20, 4, 10};
 
         string data[] = {"NAMA", "USIA", "KELAMIN"};
 
