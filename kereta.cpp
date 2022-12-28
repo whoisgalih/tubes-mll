@@ -42,6 +42,7 @@ void connectPenumpangGerbong(kereta &k, string nama, string kelas) {
         }
     } else {
         gerbong(p) = g;
+        info(gerbong(p)).sisaKursi --;
     }
 }
 

@@ -13,10 +13,8 @@ using namespace std;
 
 // MARK: - Gerbong
 struct infoGerbong{
-    string kelas;
-    int maksPenumpang;
-    string konfigurasiSeat;
-    int hargaTiket;
+    string kelas,konfigurasiSeat;
+    int maksPenumpang,hargaTiket,sisaKursi;
 };
 
 typedef struct infoGerbong infotypeGerbong;
@@ -35,9 +33,8 @@ struct listGerbong{
 
 // MARK: - Penumpang
 struct infoPenumpang{
-    string nama;
+    string nama,jenisKelamin,kategori;
     int usia;
-    string jenisKelamin;
 };
 
 typedef struct infoPenumpang infotypePenumpang;

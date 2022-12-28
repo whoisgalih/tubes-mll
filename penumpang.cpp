@@ -17,6 +17,13 @@ infotypePenumpang createInfoPenumpang(string nama, int usia, string jenisKelamin
     X.nama = nama;
     X.usia = usia;
     X.jenisKelamin = jenisKelamin;
+    if (usia > 0 && usia < 17){
+        X.kategori = "anak-anak";
+    }else if (usia > 16 && usia < 61){
+        X.kategori = "dewasa";
+    }else{
+        X.kategori = "lansia";
+    }
 
     return X;
 }
@@ -68,21 +75,14 @@ void showPenumpang(kereta k){
         tableRow(col, colWidth, data);
         tableHorizontalSparator(col, colWidth);
 
-        string gerbong,kategori;
+        string gerbong;
         while (P!=NULL){
             if (gerbong(P)!=NULL){
                 gerbong = "YA";
             }else{
                 gerbong = "TIDAK";
             }
-            if (info(P).usia>0 && info(P).usia<17){
-                kategori = "anak-anak";
-            }else if(info(P).usia>16&&info(P).usia<61){
-                kategori = "dewasa";
-            }else{
-                kategori = "lansia";
-            }
-            string data[] = {info(P).nama, to_string(info(P).usia),kategori, info(P).jenisKelamin,gerbong};
+            string data[] = {info(P).nama, to_string(info(P).usia),info(P).kategori, info(P).jenisKelamin,gerbong};
             tableRow(col, colWidth, data);
 
             P = next(P);

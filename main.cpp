@@ -28,7 +28,7 @@ int main()
     cout << "Kelompok \t: Gabi Tanpa Zal"<<endl;
     cout << "Tema \t\t: Multi Linked-List A"<<endl;
     cout << "Judul \t\t: Kereta"<<endl;
-    cout << "Anggota \t: 1. Galih Akbar Nugraha - 1301213060"<<endl;
+    cout << "Anggota \t: 1. Galih Akbar Nugraha   - 1301213060"<<endl;
     cout << "\t\t  2. Muhammad Abiya Makruf - 1301213157"<<endl<<endl;
 
     // MARK: - Menu
@@ -50,6 +50,9 @@ int main()
             while (inputUser!="0"){
                 if (inputUser == "1"){
                     inputUser = menuKereta(KeretaBandungRayaEkonomi);
+                    while (inputUser!="0"){
+                        inputUser = menuKereta(KeretaBandungRayaEkonomi);
+                    }
                 }else{
                     invalidInput();
                 }
