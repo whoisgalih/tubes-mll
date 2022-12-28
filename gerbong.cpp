@@ -60,24 +60,17 @@ void showGerbong(kereta k){
         adrGerbong P;
         P = k.gerbong.first;
 
-        int col = 5;
-        int colWidth[] = {18, 18, 15, 16, 12};
+        vector<vector<string>> t;
 
-        string data[] = {"KELAS", "MAKSIMAL PENUMPANG", "SISA KURSI","KONFIGURASI SEAT", "HARGA TIKET"};
-
-        tableHorizontalSparator(col, colWidth);
-        tableRow(col, colWidth, data);
-        tableHorizontalSparator(col, colWidth);
+        t.push_back({"KELAS", "MAKSIMAL PENUMPANG", "SISA KURSI","KONFIGURASI SEAT", "HARGA TIKET"});
 
         while (P!=NULL){
-            string data[] = {info(P).kelas, to_string(info(P).maksPenumpang),to_string(info(P).sisaKursi), info(P).konfigurasiSeat, rupiah(info(P).hargaTiket)};
+            t.push_back({info(P).kelas, to_string(info(P).maksPenumpang),to_string(info(P).sisaKursi), info(P).konfigurasiSeat, rupiah(info(P).hargaTiket)});
 
-
-            tableRow(col, colWidth, data);
             P = next(P);
         }
 
-        tableHorizontalSparator(col, colWidth);
+        table(t);
         cout<<endl;
     }
 }

@@ -4,6 +4,8 @@
 #include <iostream>
 using namespace std;
 
+#include <vector>
+
 #define next(P) (P)->next
 #define prev(P) (P)->prev
 #define info(P) (P)->info
@@ -103,8 +105,10 @@ kereta argoParahyangan();
 kereta bandungRayaEkonomi();
 
 // MARK: - Table
-void tableHorizontalSparator(int col, int colWidth[]);
-void tableRow(int col, int colWidth[], string data[]);
+void tableHorizontalSparator(vector<int> colWidth);
+void tableRow(vector<int> colWidth, vector<string> data);
+vector<int> colWidth(vector<vector<string>> &t);
+void table(vector<vector<string>> &t);
 
 // MARK: - Menu
 string menu();

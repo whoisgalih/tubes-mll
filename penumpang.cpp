@@ -66,14 +66,9 @@ void showPenumpang(kereta k){
         adrPenumpang P;
         P = k.penumpang.first;
 
-        int col = 5;
-        int colWidth[] = {30,4,10,10,8};
+        vector<vector<string>> t;
 
-        string data[] = {"NAMA", "USIA", "KATEGORI", "KELAMIN", "GERBONG"};
-
-        tableHorizontalSparator(col, colWidth);
-        tableRow(col, colWidth, data);
-        tableHorizontalSparator(col, colWidth);
+        t.push_back({"NAMA", "USIA", "KATEGORI", "KELAMIN", "GERBONG"});
 
         string gerbong;
         while (P!=NULL){
@@ -82,13 +77,12 @@ void showPenumpang(kereta k){
             }else{
                 gerbong = "TIDAK";
             }
-            string data[] = {info(P).nama, to_string(info(P).usia),info(P).kategori, info(P).jenisKelamin,gerbong};
-            tableRow(col, colWidth, data);
+            t.push_back({info(P).nama, to_string(info(P).usia),info(P).kategori, info(P).jenisKelamin,gerbong});
 
             P = next(P);
         }
 
-        tableHorizontalSparator(col, colWidth);
+        table(t);
         cout<<endl;
     }
 
@@ -158,25 +152,20 @@ void showPenumpangByGerbong(kereta k, adrGerbong g){
 
         adrPenumpang P = k.penumpang.first;
 
-        int col = 4;
-        int colWidth[] = {30, 4, 10, 18};
+        
+        vector<vector<string>> t;
 
-        string data[] = {"NAMA", "USIA", "KELAMIN", "KELAS"};
-
-        tableHorizontalSparator(col, colWidth);
-        tableRow(col, colWidth, data);
-        tableHorizontalSparator(col, colWidth);
+        t.push_back({"NAMA", "USIA", "KELAMIN", "KELAS"});
 
         while (P != NULL){
             if (gerbong(P) == g){
-                string data[] = {info(P).nama, to_string(info(P).usia), info(P).jenisKelamin, info(gerbong(P)).kelas};
-                    tableRow(col, colWidth, data);
+                t.push_back({info(P).nama, to_string(info(P).usia), info(P).jenisKelamin, info(gerbong(P)).kelas});
             }
 
             P = next(P);
         }
 
-        tableHorizontalSparator(col, colWidth);
+        table(t);
         cout<<endl;
     }
 }
