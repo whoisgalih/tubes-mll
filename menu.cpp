@@ -162,21 +162,17 @@ string menuKereta(kereta &k) {
         cout << "Jumlah penumpang dalam gerbong:" << endl;
         adrGerbong g = k.gerbong.first;
 
-        int col = 2;
-        int colWidth[] = {15, 20};
-
-        string data[] = {"KELAS","JUMLAH PENUMPANG"};
-
-        tableHorizontalSparator(col, colWidth);
-        tableRow(col, colWidth, data);
-        tableHorizontalSparator(col, colWidth);
+        vector<vector<string>> t;
+        
+        t.push_back({"KELAS","JUMLAH PENUMPANG"});
 
         while (g != NULL) {
-            string data[] = {info(g).kelas,to_string(countPenumpangByGerbong(k,g))};
-            tableRow(col, colWidth, data);
+            t.push_back({info(g).kelas,to_string(countPenumpangByGerbong(k,g))});
             g = next(g);
         }
-        tableHorizontalSparator(col, colWidth);
+        
+        table(t);
+        
         pause();
     }else if (inputUser == "10"){
         // Menampilkan Gerbong Dengan Jumlah Penumpang Paling Sedikit
