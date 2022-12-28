@@ -4,8 +4,6 @@
 #include <iostream>
 using namespace std;
 
-#include <cstdlib>
-
 #define next(P) (P)->next
 #define prev(P) (P)->prev
 #define info(P) (P)->info
@@ -119,5 +117,6 @@ void invalidInput();
 void clearScreen();
 void pause();
 string rupiah(int i);
+int intInput(string prompt);
 
 #endif // MLL_H_INCLUDED
