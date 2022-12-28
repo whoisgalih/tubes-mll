@@ -99,9 +99,13 @@ string menuKereta(kereta &k) {
         getline(cin, kelas, '\n');
 
         if (searchGerbong(k, kelas) != NULL) {
-            insertLastPenumpang(k, createElmPenumpang(info));
-            connectPenumpangGerbong(k, info.nama, kelas);
-            cout << "Penumpang " << info.nama << " berhasil ditambahkan ke kereta " << k.info.nama << " di gerbong " << kelas << endl;
+            if (info.usia>0){
+                insertLastPenumpang(k, createElmPenumpang(info));
+                connectPenumpangGerbong(k, info.nama, kelas);
+                cout << "Penumpang " << info.nama << " berhasil ditambahkan ke kereta " << k.info.nama << " di gerbong " << kelas << endl;
+            }else{
+                cout << "Usia tidak valid."<<endl;
+            }
         }else{
             cout << "Gerbong Tidak Ada. Insert Penumpang Gagal!"<<endl;
         }
@@ -112,7 +116,7 @@ string menuKereta(kereta &k) {
         cout << "Nama penumpang yang dicari: ";
         getline(cin, nama, '\n');
         getline(cin, nama, '\n');
-        
+
         adrPenumpang p = searchPenumpang(k, nama);
 
         if (p) {
@@ -141,7 +145,7 @@ string menuKereta(kereta &k) {
         pause();
     }else if (inputUser == "7"){
         string nama;
-        cout<<"Masukka nama: ";
+        cout<<"Masukkan nama: ";
         getline(cin, nama, '\n');
         getline(cin, nama, '\n');
         deletePenumpang(k, nama);
