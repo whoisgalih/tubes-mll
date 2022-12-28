@@ -121,8 +121,9 @@ string menuKereta(kereta &k) {
 
         if (p) {
             cout << "Terdapat penumpang bernama " << nama << endl;
+            cout << "Usia\t\t: " << info(p).usia << endl;
+            cout << "Kategori \t: "<< info(p).kategori<<endl;
             cout << "Jenis kelamin\t: " << info(p).jenisKelamin << endl;
-            cout << "Umur\t\t: " << info(p).usia << endl;
             cout << "Gerbong\t\t: " << info(gerbong(p)).kelas << endl;
             cout << "Kereta\t\t: " << k.info.nama << endl;
         } else {
@@ -156,7 +157,6 @@ string menuKereta(kereta &k) {
 
         while (g != NULL) {
             showPenumpangByGerbong(k, g);
-
             g = next(g);
         }
         pause();
@@ -165,21 +165,32 @@ string menuKereta(kereta &k) {
         cout << "Jumlah penumpang dalam gerbong:" << endl;
         adrGerbong g = k.gerbong.first;
 
-        while (g != NULL) {
-            cout << info(g).kelas << "\t: " << countPenumpangByGerbong(k, g) << endl;
+        int col = 2;
+        int colWidth[] = {15, 20};
 
+        string data[] = {"KELAS","JUMLAH PENUMPANG"};
+
+        tableHorizontalSparator(col, colWidth);
+        tableRow(col, colWidth, data);
+        tableHorizontalSparator(col, colWidth);
+
+        while (g != NULL) {
+            string data[] = {info(g).kelas,to_string(countPenumpangByGerbong(k,g))};
+            tableRow(col, colWidth, data);
             g = next(g);
         }
+        tableHorizontalSparator(col, colWidth);
         pause();
     }else if (inputUser == "10"){
         // Menampilkan Gerbong Dengan Jumlah Penumpang Paling Sedikit
         adrGerbong g = minPenumpang(k);
         cout << "Gerbong dengan penumpang paling sedikit adalah " << info(g).kelas << endl;
         cout <<
-        "Banyak Penumpang\t: "<< countPenumpangByGerbong(k, g)<<endl<<
         "Kelas\t\t\t: " << info(g).kelas << endl <<
         "Maksimal Penumpang\t: " << info(g).maksPenumpang << endl <<
-        "Sisa Kursi\t\t: "<<info(g).maksPenumpang - countPenumpangByGerbong(k, g)<<endl<<
+        "Banyak Penumpang\t: "<< countPenumpangByGerbong(k, g)<<endl<<
+        //"Sisa Kursi\t\t: "<<info(g).maksPenumpang - countPenumpangByGerbong(k, g)<<endl<<
+        "Sisa Kursi\t\t: "<<info(g).sisaKursi<<endl<<
         "Konfigurasi Seat\t: " << info(g).konfigurasiSeat << endl <<
         "Harga Tiket\t\t: " << rupiah(info(g).hargaTiket) << endl << endl;
         pause();
@@ -188,10 +199,11 @@ string menuKereta(kereta &k) {
         adrGerbong g = maxPenumpang(k);
         cout << "Gerbong dengan penumpang paling banyak adalah " << info(g).kelas << endl;
         cout <<
-        "Banyak Penumpang\t: "<<countPenumpangByGerbong(k, g)<<endl<<
         "Kelas\t\t\t: " << info(g).kelas << endl <<
         "Maksimal Penumpang\t: " << info(g).maksPenumpang << endl <<
-        "Sisa Kursi\t\t: "<<info(g).maksPenumpang - countPenumpangByGerbong(k, g)<<endl<<
+        "Banyak Penumpang\t: "<<countPenumpangByGerbong(k, g)<<endl<<
+        //"Sisa Kursi\t\t: "<<info(g).maksPenumpang - countPenumpangByGerbong(k, g)<<endl<<
+        "Sisa Kursi\t\t: "<<info(g).sisaKursi<<endl<<
         "Konfigurasi Seat\t: " << info(g).konfigurasiSeat << endl <<
         "Harga Tiket\t\t: " << rupiah(info(g).hargaTiket) << endl << endl;
         pause();

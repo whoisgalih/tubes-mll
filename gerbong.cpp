@@ -17,6 +17,7 @@ infotypeGerbong createInfoGerbong(string kelas, int maksPenumpang, string konfig
     X.maksPenumpang = maksPenumpang;
     X.konfigurasiSeat = konfigurasiSeat;
     X.hargaTiket = hargaTiket;
+    X.sisaKursi = maksPenumpang;
 
     return X;
 }
@@ -45,7 +46,7 @@ void insertLastGerbong(kereta &k, adrGerbong P){
         k.gerbong.last = P;
     }
     k.info.panjangRangkaian++;
-    
+
     cout << "Gerbong " << info(P).kelas << " berhasil ditambahkan ke kereta " << k.info.nama << endl;
 }
 
@@ -59,17 +60,17 @@ void showGerbong(kereta k){
         adrGerbong P;
         P = k.gerbong.first;
 
-        int col = 4;
-        int colWidth[] = {18, 18, 16, 12};
+        int col = 5;
+        int colWidth[] = {18, 18, 15, 16, 12};
 
-        string data[] = {"KELAS", "MAKSIMAL PENUMPANG", "KONFIGURASI SEAT", "HARGA TIKET"};
+        string data[] = {"KELAS", "MAKSIMAL PENUMPANG", "SISA KURSI","KONFIGURASI SEAT", "HARGA TIKET"};
 
         tableHorizontalSparator(col, colWidth);
         tableRow(col, colWidth, data);
         tableHorizontalSparator(col, colWidth);
 
         while (P!=NULL){
-            string data[] = {info(P).kelas, to_string(info(P).maksPenumpang), info(P).konfigurasiSeat, rupiah(info(P).hargaTiket)};
+            string data[] = {info(P).kelas, to_string(info(P).maksPenumpang),to_string(info(P).sisaKursi), info(P).konfigurasiSeat, rupiah(info(P).hargaTiket)};
 
 
             tableRow(col, colWidth, data);
@@ -102,7 +103,7 @@ adrGerbong searchGerbong(kereta k, string kelas){
 void deleteGerbong(kereta &k, adrGerbong g) {
     /*  {I.S. list gerbong mungkin kosong
          F.S. menghapus gerbong dari list gerbong jika gerbong tersebut ada pada list gerbong}   */
-         
+
     // CEK KALAU KOSONG
     if (k.gerbong.first == NULL){
         cout << "List Kosong"<<endl;
@@ -130,7 +131,7 @@ void deleteGerbong(kereta &k, adrGerbong g) {
             cout << "Kelas " << info(g).kelas << " tidak terdaftar" << endl;
         }
     }
-    
+
     k.info.panjangRangkaian--;
 }
 
