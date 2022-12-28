@@ -73,25 +73,22 @@ string menuKereta(kereta &k) {
         cout << "Kelas\t\t\t: ";
         getline(cin, info.kelas, '\n');
         getline(cin, info.kelas, '\n');
-        cout << "Maksimal Penumpang\t: ";
-        cin >> info.maksPenumpang;
+        info.maksPenumpang = intInput("Maksimal Penumpang\t: ");
         cout << "Konfigurasi seat\t: ";
         cin >> info.konfigurasiSeat;
-        cout << "Harga tiket\t\t: ";
-        cin >> info.hargaTiket;
+        info.hargaTiket = intInput("Harga tiket\t\t: ");
 
         insertLastGerbong(k, createElmGerbong(info));
 
         pause();
     }else if (inputUser == "2"){
         infoPenumpang info;
-        string kelas;
+        string kelas, usia;
 
         cout << "Nama\t\t: ";
         getline(cin, info.nama, '\n');
         getline(cin, info.nama, '\n');
-        cout << "Usia\t\t: ";
-        cin >> info.usia;
+        info.usia = intInput("Usia\t\t: ");
         cout << "Jenis Kelamin\t: ";
         getline(cin, info.jenisKelamin, '\n');
         getline(cin, info.jenisKelamin, '\n');

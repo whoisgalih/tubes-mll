@@ -25,3 +25,26 @@ string rupiah(int i) {
     
     return s;
 }
+
+int intInput(string prompt) {
+    cout << prompt;
+    
+    // Error handling integer input
+    string s;
+    int num;
+    bool isSuccess = false;
+    
+    while (!isSuccess) {
+        cin >> s;
+        
+        try {
+            num = stoi(s);
+            isSuccess = true;
+        } catch (exception &err) {
+            cout << s << " bukan integer" << endl;
+            cout << prompt;
+        }
+    }
+    
+    return num;
+}
