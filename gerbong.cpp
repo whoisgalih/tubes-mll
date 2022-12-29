@@ -104,9 +104,14 @@ void deleteGerbong(kereta &k, adrGerbong g) {
         if (g != NULL){
             if (g == k.gerbong.first){ // CEK APAKAH ADA DI FIRST
                 // Delete First
+                if (k.gerbong.first == k.gerbong.last) {
+                    k.gerbong.last = NULL;
+                } else {
+                    prev(k.gerbong.first) = NULL;
+                }
+                
                 k.gerbong.first = next(g);
                 next(g) = NULL;
-                prev(k.gerbong.first) = NULL;
             }else if (g == k.gerbong.last){ // CEK APAKAH ADA DI LAST
                 // Delete Last
                 k.gerbong.last = prev(g);
