@@ -117,9 +117,14 @@ void deletePenumpang(kereta &k, string nama){
         if (pen != NULL){
             if (pen == k.penumpang.first){ // CEK APAKAH ADA DI FIRST
                 // Delete First
+                if (k.penumpang.first == k.penumpang.last) {
+                    k.penumpang.last = NULL;
+                } else {
+                    prev(k.penumpang.first) = NULL;
+                }
+                
                 k.penumpang.first = next(pen);
                 next(pen) = NULL;
-                prev(k.penumpang.first) = NULL;
             }else if (pen == k.penumpang.last){ // CEK APAKAH ADA DI LAST
                 // Delete Last
                 k.penumpang.last = prev(pen);
