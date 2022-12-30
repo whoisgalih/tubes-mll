@@ -4,14 +4,14 @@
 listPenumpang createListPenumpang(){
     /*  {Fungsi menginisialisasi list penumpang dan mengembalikan list penumpang yang kosong}
      Catatan : ada pointer first dan last    */
-    
+
     listPenumpang LP;
     LP.first = NULL;
     LP.last = NULL;
     return LP;
 }
 
-infotypePenumpang createInfoPenumpang(string nama, int usia, string jenisKelamin){
+infotypePenumpang createInfoPenumpang(string nama, int usia, string jenisKelamin,int nik){
     /*  {Fungsi menginisialiasi X dan mengembalikan X yang berisi info dari seorang penumpang} */
     infotypePenumpang X;
     X.nama = nama;
@@ -24,7 +24,8 @@ infotypePenumpang createInfoPenumpang(string nama, int usia, string jenisKelamin
     }else{
         X.kategori = "lansia";
     }
-    
+    X.nik = nik;
+
     return X;
 }
 
@@ -36,7 +37,7 @@ adrPenumpang createElmPenumpang(infotypePenumpang X){
     next(P) = NULL;
     prev(P) = NULL;
     gerbong(P) = NULL;
-    
+
     return P;
 }
 
@@ -52,8 +53,8 @@ void insertLastPenumpang(kereta &k, adrPenumpang P){
         prev(P) = Q;
         k.penumpang.last = P;
     }
-    
-    
+
+
 }
 
 void showPenumpang(kereta k){
@@ -62,11 +63,11 @@ void showPenumpang(kereta k){
     cout << "Penumpang dari kereta " << k.info.nama << endl;
     adrPenumpang P;
     P = k.penumpang.first;
-    
+
     vector<vector<string>> t;
-    
-    t.push_back({"NAMA", "USIA", "KATEGORI", "KELAMIN", "GERBONG"});
-    
+
+    t.push_back({"NIK","NAMA","USIA", "KATEGORI", "KELAMIN", "GERBONG"});
+
     string gerbong;
     while (P!=NULL){
         if (gerbong(P)!=NULL){
@@ -74,41 +75,47 @@ void showPenumpang(kereta k){
         }else{
             gerbong = "TIDAK";
         }
-        t.push_back({info(P).nama, to_string(info(P).usia),info(P).kategori, info(P).jenisKelamin,gerbong});
-        
+        t.push_back({to_string(info(P).nik),info(P).nama, to_string(info(P).usia),info(P).kategori, info(P).jenisKelamin,gerbong});
+
         P = next(P);
     }
-    
+
     table(t);
     cout<<endl;
 }
 
-adrPenumpang searchPenumpang(kereta k, string nama){
+adrPenumpang searchPenumpang(kereta k, string nama, int nik){
     /*  {Fungsi akan mengembalikan alamat penumpang jika terdapat pada list penumpang
      atau NULL jika tidak terdapat pada list penumpang}     */
-    
+
     adrPenumpang P = k.penumpang.first;
-    
+
     while (P!=NULL){
-        if (toLower(info(P).nama) == toLower(nama)){
+        if (toLower(info(P).nama) == toLower(nama)|| info(P).nik == nik){
             return P;
         }
         P = next(P);
     }
-    
+
     return P;
 }
 
-void deletePenumpang(kereta &k, string nama){
+void deletePenumpang(kereta &k, string nama, int nik){
     /*  {I.S. list penumpang mungkin kosong
      F.S. menghapus penumpang dari list penumpang jika penumpang tersebut ada pada list penumpang}   */
-    
+
     // CEK KALAU KOSONG
     if (k.penumpang.first == NULL){
         cout << "List Kosong"<<endl;
     }else{
         // CEK APAKAH NAMA ADA DI LIST
-        adrPenumpang pen = searchPenumpang(k, nama);
+        adrPenumpang pen;
+        if (nama!=""){
+            pen = searchPenumpang(k, nama,NULL);
+        }else{
+            pen = searchPenumpang(k, "",nik);
+        }
+
         if (pen != NULL){
             if (pen == k.penumpang.first){ // CEK APAKAH ADA DI FIRST
                 // Delete First
@@ -117,7 +124,7 @@ void deletePenumpang(kereta &k, string nama){
                 } else {
                     prev(k.penumpang.first) = NULL;
                 }
-                
+
                 k.penumpang.first = next(pen);
                 next(pen) = NULL;
             }else if (pen == k.penumpang.last){ // CEK APAKAH ADA DI LAST
@@ -140,6 +147,7 @@ void deletePenumpang(kereta &k, string nama){
     }
 }
 
+
 void showPenumpangByGerbong(kereta k, adrGerbong g){
     /*  {I.S. list penumpang pada kereta k mungkin kosong
      F.S. mencetak seluruh penumpang berdasarkan kelas gerbong}   */
@@ -147,22 +155,22 @@ void showPenumpangByGerbong(kereta k, adrGerbong g){
         cout << "Gerbong tidak ada" << endl;
     } else {
         cout << "Penumpang dari kereta " << k.info.nama << " di gerbong " << info(g).kelas << endl;
-        
+
         adrPenumpang P = k.penumpang.first;
-        
-        
+
+
         vector<vector<string>> t;
-        
-        t.push_back({"NAMA", "USIA", "KELAMIN", "KELAS"});
-        
+
+        t.push_back({"NIK","NAMA", "USIA", "KELAMIN", "KELAS"});
+
         while (P != NULL){
             if (gerbong(P) == g){
-                t.push_back({info(P).nama, to_string(info(P).usia), info(P).jenisKelamin, info(gerbong(P)).kelas});
+                t.push_back({to_string(info(P).nik),info(P).nama, to_string(info(P).usia), info(P).jenisKelamin, info(gerbong(P)).kelas});
             }
-            
+
             P = next(P);
         }
-        
+
         table(t);
         cout<<endl;
     }
@@ -171,7 +179,7 @@ void showPenumpangByGerbong(kereta k, adrGerbong g){
 
 int countPenumpangByGerbong(kereta k, adrGerbong g) {
     /*  {Fungsi akan mengembalikan banyak penumpang dari suatu gerbong} */
-    
+
     int counter = 0;
     if (k.penumpang.first == NULL || g == NULL){
         return 0;
@@ -181,7 +189,7 @@ int countPenumpangByGerbong(kereta k, adrGerbong g) {
             if (gerbong(P) == g){
                 counter++;
             }
-            
+
             P = next(P);
         }
         return counter;

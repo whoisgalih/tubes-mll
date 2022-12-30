@@ -23,43 +23,43 @@ kereta turangga(){
 
     // Dummy Data Penumpang Turangga
     adrPenumpang p;
-    p = createElmPenumpang(createInfoPenumpang("Muhammad Abiya", 20, "Laki-laki"));
+    p = createElmPenumpang(createInfoPenumpang("Muhammad Abiya", 20, "Laki-laki",61606160));
     insertLastPenumpang(kereta, p);
     connectPenumpangGerbong(kereta,"Muhammad Abiya","Eksekutif AA");
 
-    p = createElmPenumpang(createInfoPenumpang("Galih Akbar", 18, "Laki-laki"));
+    p = createElmPenumpang(createInfoPenumpang("Galih Akbar", 18, "Laki-laki",49862647));
     insertLastPenumpang(kereta, p);
     connectPenumpangGerbong(kereta,"Galih Akbar","Eksekutif A");
 
-    p = createElmPenumpang(createInfoPenumpang("Gading Makruf", 17, "Laki-laki"));
+    p = createElmPenumpang(createInfoPenumpang("Gading Makruf", 17, "Laki-laki",72918655));
     insertLastPenumpang(kereta, p);
     connectPenumpangGerbong(kereta,"Gading Makruf","Eksekutif H");
 
-    p = createElmPenumpang(createInfoPenumpang("Nada Raudah", 19, "Perempuan"));
+    p = createElmPenumpang(createInfoPenumpang("Nada Raudah", 19, "Perempuan",62043766));
     insertLastPenumpang(kereta, p);
     connectPenumpangGerbong(kereta,"Nada Raudah","Eksekutif I");
 
-    p = createElmPenumpang(createInfoPenumpang("Dian Irdianingsih", 45, "Perempuan"));
+    p = createElmPenumpang(createInfoPenumpang("Dian Irdianingsih", 45, "Perempuan",48717291));
     insertLastPenumpang(kereta, p);
     connectPenumpangGerbong(kereta,"Dian Irdianingsih","Eksekutif A");
 
-    p = createElmPenumpang(createInfoPenumpang("Azumah Yasmin", 19, "Perempuang"));
+    p = createElmPenumpang(createInfoPenumpang("Azumah Yasmin", 19, "Perempuang",48605082));
     insertLastPenumpang(kereta, p);
     connectPenumpangGerbong(kereta,"Azumah Yasmin","Eksekutif AA");
 
-    p = createElmPenumpang(createInfoPenumpang("Falah Asyraf", 19, "Laki-laki"));
+    p = createElmPenumpang(createInfoPenumpang("Falah Asyraf", 19, "Laki-laki",26308655));
     insertLastPenumpang(kereta, p);
     connectPenumpangGerbong(kereta,"Falah Asyraf","Eksekutif H");
 
-    p = createElmPenumpang(createInfoPenumpang("Fajar Dwi", 5, "Laki-laki"));
+    p = createElmPenumpang(createInfoPenumpang("Fajar Dwi", 5, "Laki-laki",57533829));
     insertLastPenumpang(kereta, p);
     connectPenumpangGerbong(kereta,"Fajar Dwi","Eksekutif H");
 
-    p = createElmPenumpang(createInfoPenumpang("Makruf Amal", 55, "Laki-laki"));
+    p = createElmPenumpang(createInfoPenumpang("Makruf Amal", 55, "Laki-laki",33413341));
     insertLastPenumpang(kereta, p);
     connectPenumpangGerbong(kereta,"Makruf Amal","Eksekutif I");
 
-    p = createElmPenumpang(createInfoPenumpang("Itoh Masitoh", 72, "Perempuan"));
+    p = createElmPenumpang(createInfoPenumpang("Itoh Masitoh", 72, "Perempuan",56305630));
     insertLastPenumpang(kereta, p);
     connectPenumpangGerbong(kereta,"Itoh Masitoh","Eksekutif AA");
 

@@ -38,7 +38,7 @@ struct listGerbong{
 // MARK: - Penumpang
 struct infoPenumpang{
     string nama,jenisKelamin,kategori;
-    int usia;
+    int usia,nik;
 };
 
 typedef struct infoPenumpang infotypePenumpang;
@@ -74,14 +74,15 @@ struct kereta {
 
 // MARK: - Function/Procedure Penumpang
 listPenumpang createListPenumpang();
-infotypePenumpang createInfoPenumpang(string nama, int usia, string jenisKelamin);
+infotypePenumpang createInfoPenumpang(string nama, int usia, string jenisKelamin,int nik);
 adrPenumpang createElmPenumpang(infotypePenumpang X);
 void insertLastPenumpang(kereta &k, adrPenumpang P); //FUNGSIONALITAS DASAR A
 void showPenumpang(kereta k); //FUNGSIONALITAS DASAR C
-adrPenumpang searchPenumpang(kereta k, string nama); //FUNGSIONALITAS DASAR B
-void deletePenumpang(kereta &k, string nama);
+adrPenumpang searchPenumpang(kereta k, string nama, int nik); //FUNGSIONALITAS DASAR B
+void deletePenumpang(kereta &k, string nama,int nik);
 void showPenumpangByGerbong(kereta k, adrGerbong g); //FUNGSIONALITAS DASAR F
 int countPenumpangByGerbong(kereta k, adrGerbong g); //FUNGSIONALITAS DASAR G
+
 
 // MARK: - Function/Procedure Gerbong
 listGerbong createListGerbong();

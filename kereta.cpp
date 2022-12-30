@@ -31,7 +31,7 @@ void connectPenumpangGerbong(kereta &k, string nama, string kelas) {
         F.S. penumpang dengan nama yang diberikan terhubung dengan gerbong yang memiliki kelas yang diberikan} */
 
     adrGerbong g = searchGerbong(k, kelas);
-    adrPenumpang p = searchPenumpang(k, nama);
+    adrPenumpang p = searchPenumpang(k, nama,NULL);
 
     if (g == NULL || p == NULL) {
         if (g == NULL) {
