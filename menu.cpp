@@ -87,10 +87,10 @@ string menuKereta(kereta &k) {
 
         cout << "Gerbong\t\t: ";
         getline(cin, kelas, '\n');
+        getline(cin, kelas, '\n');
 
         if (searchGerbong(k, kelas) != NULL) {
             cout << "Nama\t\t: ";
-            getline(cin, info.nama, '\n');
             getline(cin, info.nama, '\n');
             
             info.usia = intInput("Usia\t\t: ");
