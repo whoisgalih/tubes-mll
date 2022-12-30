@@ -6,7 +6,9 @@ using namespace std;
 
 #include <vector>
 
+#ifdef _WIN32
 #include <bits/stdc++.h>
+#endif
 
 #define next(P) (P)->next
 #define prev(P) (P)->prev
