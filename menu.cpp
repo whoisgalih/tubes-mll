@@ -85,24 +85,27 @@ string menuKereta(kereta &k) {
         infoPenumpang info;
         string kelas, usia;
 
-        cout << "Nama\t\t: ";
-        getline(cin, info.nama, '\n');
-        getline(cin, info.nama, '\n');
-        info.usia = intInput("Usia\t\t: ");
-        cout << "Jenis Kelamin\t: ";
-        getline(cin, info.jenisKelamin, '\n');
-        getline(cin, info.jenisKelamin, '\n');
         cout << "Gerbong\t\t: ";
         getline(cin, kelas, '\n');
 
         if (searchGerbong(k, kelas) != NULL) {
-            if (info.usia>0){
-                insertLastPenumpang(k, createElmPenumpang(info));
-                connectPenumpangGerbong(k, info.nama, kelas);
-                cout << "Penumpang " << info.nama << " berhasil ditambahkan ke kereta " << k.info.nama << " di gerbong " << kelas << endl;
-            }else{
-                cout << "Usia tidak valid."<<endl;
+            cout << "Nama\t\t: ";
+            getline(cin, info.nama, '\n');
+            getline(cin, info.nama, '\n');
+            
+            info.usia = intInput("Usia\t\t: ");
+            while (info.usia < 0) {
+                cout << "Usia tidak valid. Usia harus positif" << endl;
+                info.usia = intInput("Usia\t\t: ");
             }
+            
+            cout << "Jenis Kelamin\t: ";
+            getline(cin, info.jenisKelamin, '\n');
+            getline(cin, info.jenisKelamin, '\n');
+            
+            insertLastPenumpang(k, createElmPenumpang(info));
+            connectPenumpangGerbong(k, info.nama, kelas);
+            cout << "Penumpang " << info.nama << " berhasil ditambahkan ke kereta " << k.info.nama << " di gerbong " << kelas << endl;
         }else{
             cout << "Gerbong Tidak Ada. Insert Penumpang Gagal!"<<endl;
         }
