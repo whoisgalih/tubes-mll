@@ -95,7 +95,7 @@ adrPenumpang searchPenumpang(kereta k, string nama){
     adrPenumpang P = k.penumpang.first;
 
     while (P!=NULL){
-        if (info(P).nama == nama){
+        if (toLower(info(P).nama) == toLower(nama)){
             return P;
         }
         P = next(P);
