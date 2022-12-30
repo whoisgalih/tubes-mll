@@ -186,7 +186,7 @@ string menuKereta(kereta &k) {
         pause();
     }else if (inputUser == "10"){
         // Menampilkan Gerbong Dengan Jumlah Penumpang Paling Sedikit
-        adrGerbong g = minPenumpang(k);=
+        adrGerbong g = minPenumpang(k);
         
         if (g != NULL) {
             cout << "Gerbong dengan penumpang paling sedikit adalah " << info(g).kelas << endl;
