@@ -2,6 +2,8 @@
 
 // MARK: - Menu
 string menu() {
+    /* {Fungsi akan menampilkan pilihan menu yang disediakan program,
+        kemudian fungsi akan mengembalikan suatu string yang menandakan user memilih menu nomor berapa} */
     clearScreen();
     string inputUser;
     cout << "===== SELAMAT DATANG DI PROGRAM KERETA =====" << endl;
@@ -16,6 +18,8 @@ string menu() {
 }
 
 string menuLokal() {
+    /* {Fungsi akan menampilkan pilihan menu yang disediakan program,
+        kemudian fungsi akan mengembalikan suatu string yang menandakan user memilih menu nomor berapa} */
     clearScreen();
     string inputUser;
     cout << "===== SILAHKAN PILIH KERETA =====" << endl;
@@ -28,8 +32,9 @@ string menuLokal() {
     return inputUser;
 }
 
-string menuAntarKota()
-{
+string menuAntarKota(){
+    /* {Fungsi akan menampilkan pilihan menu yang disediakan program,
+        kemudian fungsi akan mengembalikan suatu string yang menandakan user memilih menu nomor berapa} */
     clearScreen();
     string inputUser;
     cout << "===== SILAHKAN PILIH KERETA =====" << endl;
@@ -44,6 +49,8 @@ string menuAntarKota()
 }
 
 string menuKereta(kereta &k) {
+    /* {Fungsi akan menampilkan pilihan menu yang disediakan program,
+        kemudian fungsi akan mengembalikan suatu string yang menandakan user memilih menu nomor berapa} */
     clearScreen();
     cout << "=============== DATA KERETA ==============="<<endl;
     showKereta(k);
@@ -163,16 +170,16 @@ string menuKereta(kereta &k) {
         adrGerbong g = k.gerbong.first;
 
         vector<vector<string>> t;
-        
+
         t.push_back({"KELAS","JUMLAH PENUMPANG"});
 
         while (g != NULL) {
             t.push_back({info(g).kelas,to_string(countPenumpangByGerbong(k,g))});
             g = next(g);
         }
-        
+
         table(t);
-        
+
         pause();
     }else if (inputUser == "10"){
         // Menampilkan Gerbong Dengan Jumlah Penumpang Paling Sedikit
@@ -182,7 +189,6 @@ string menuKereta(kereta &k) {
         "Kelas\t\t\t: " << info(g).kelas << endl <<
         "Maksimal Penumpang\t: " << info(g).maksPenumpang << endl <<
         "Banyak Penumpang\t: "<< countPenumpangByGerbong(k, g)<<endl<<
-        //"Sisa Kursi\t\t: "<<info(g).maksPenumpang - countPenumpangByGerbong(k, g)<<endl<<
         "Sisa Kursi\t\t: "<<info(g).sisaKursi<<endl<<
         "Konfigurasi Seat\t: " << info(g).konfigurasiSeat << endl <<
         "Harga Tiket\t\t: " << rupiah(info(g).hargaTiket) << endl << endl;
@@ -195,7 +201,6 @@ string menuKereta(kereta &k) {
         "Kelas\t\t\t: " << info(g).kelas << endl <<
         "Maksimal Penumpang\t: " << info(g).maksPenumpang << endl <<
         "Banyak Penumpang\t: "<<countPenumpangByGerbong(k, g)<<endl<<
-        //"Sisa Kursi\t\t: "<<info(g).maksPenumpang - countPenumpangByGerbong(k, g)<<endl<<
         "Sisa Kursi\t\t: "<<info(g).sisaKursi<<endl<<
         "Konfigurasi Seat\t: " << info(g).konfigurasiSeat << endl <<
         "Harga Tiket\t\t: " << rupiah(info(g).hargaTiket) << endl << endl;
@@ -207,6 +212,8 @@ string menuKereta(kereta &k) {
 }
 
 void invalidInput() {
+    /* {I.S.
+        F.S. Procedure akan mencetak string} */
     cout << "Maaf input tidak valid."<<endl;
     pause();
 }

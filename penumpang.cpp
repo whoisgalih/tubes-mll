@@ -3,7 +3,7 @@
 // MARK: - Penumpang
 listPenumpang createListPenumpang(){
     /*  {Fungsi menginisialisasi list penumpang dan mengembalikan list penumpang yang kosong}
-        Catatan : ada pointer first dan last    */
+         Catatan : ada pointer first dan last    */
 
     listPenumpang LP;
     LP.first = NULL;
@@ -12,7 +12,7 @@ listPenumpang createListPenumpang(){
 }
 
 infotypePenumpang createInfoPenumpang(string nama, int usia, string jenisKelamin){
-    /*  {Fungsi menginisialiasi X dan mengembalikan X yang berisi info dari seorang penumpang}    */
+    /*  {Fungsi menginisialiasi X dan mengembalikan X yang berisi info dari seorang penumpang} */
     infotypePenumpang X;
     X.nama = nama;
     X.usia = usia;
@@ -122,7 +122,7 @@ void deletePenumpang(kereta &k, string nama){
                 } else {
                     prev(k.penumpang.first) = NULL;
                 }
-                
+
                 k.penumpang.first = next(pen);
                 next(pen) = NULL;
             }else if (pen == k.penumpang.last){ // CEK APAKAH ADA DI LAST
@@ -157,7 +157,7 @@ void showPenumpangByGerbong(kereta k, adrGerbong g){
 
         adrPenumpang P = k.penumpang.first;
 
-        
+
         vector<vector<string>> t;
 
         t.push_back({"NAMA", "USIA", "KELAMIN", "KELAS"});
