@@ -2,6 +2,8 @@
 
 // MARK: - Menu
 string menu() {
+    /* {Fungsi akan menampilkan pilihan menu yang disediakan program,
+        kemudian fungsi akan mengembalikan suatu string yang menandakan user memilih menu nomor berapa} */
     clearScreen();
     string inputUser;
     cout << "===== SELAMAT DATANG DI PROGRAM KERETA =====" << endl;
@@ -16,6 +18,8 @@ string menu() {
 }
 
 string menuLokal() {
+    /* {Fungsi akan menampilkan pilihan menu yang disediakan program,
+        kemudian fungsi akan mengembalikan suatu string yang menandakan user memilih menu nomor berapa} */
     clearScreen();
     string inputUser;
     cout << "===== SILAHKAN PILIH KERETA =====" << endl;
@@ -28,8 +32,9 @@ string menuLokal() {
     return inputUser;
 }
 
-string menuAntarKota()
-{
+string menuAntarKota(){
+    /* {Fungsi akan menampilkan pilihan menu yang disediakan program,
+        kemudian fungsi akan mengembalikan suatu string yang menandakan user memilih menu nomor berapa} */
     clearScreen();
     string inputUser;
     cout << "===== SILAHKAN PILIH KERETA =====" << endl;
@@ -44,6 +49,8 @@ string menuAntarKota()
 }
 
 string menuKereta(kereta &k) {
+    /* {Fungsi akan menampilkan pilihan menu yang disediakan program,
+        kemudian fungsi akan mengembalikan suatu string yang menandakan user memilih menu nomor berapa} */
     clearScreen();
     cout << "=============== DATA KERETA ==============="<<endl;
     showKereta(k);
@@ -166,20 +173,20 @@ string menuKereta(kereta &k) {
         adrGerbong g = k.gerbong.first;
 
         vector<vector<string>> t;
-        
+
         t.push_back({"KELAS","JUMLAH PENUMPANG"});
 
         while (g != NULL) {
             t.push_back({info(g).kelas,to_string(countPenumpangByGerbong(k,g))});
             g = next(g);
         }
-        
+
         table(t);
-        
+
         pause();
     }else if (inputUser == "10"){
         // Menampilkan Gerbong Dengan Jumlah Penumpang Paling Sedikit
-        adrGerbong g = minPenumpang(k);
+        adrGerbong g = minPenumpang(k);=
         
         if (g != NULL) {
             cout << "Gerbong dengan penumpang paling sedikit adalah " << info(g).kelas << endl;
@@ -194,11 +201,11 @@ string menuKereta(kereta &k) {
         } else {
             cout << "List gerbong kosong" << endl;
         }
+        
         pause();
     }else if (inputUser == "11"){
         // Menampilkan Gerbong Dengan Jumlah Penumpang Paling Banyak
         adrGerbong g = maxPenumpang(k);
-        
         if (g != NULL) {
             cout << "Gerbong dengan penumpang paling banyak adalah " << info(g).kelas << endl;
             cout <<
@@ -220,6 +227,8 @@ string menuKereta(kereta &k) {
 }
 
 void invalidInput() {
+    /* {I.S.
+        F.S. Procedure akan mencetak string} */
     cout << "Maaf input tidak valid."<<endl;
     pause();
 }

@@ -24,7 +24,7 @@ infotypeGerbong createInfoGerbong(string kelas, int maksPenumpang, string konfig
 
 adrGerbong createElmGerbong(infotypeGerbong X){
     /* {Fungsi menginisialisasi dan mengalokasi element gerbong, kemudian fungsi mengembalikan element gerbong
-    yang infonya ter isi oleh X} */
+        yang infonya ter isi oleh X} */
     adrGerbong P = new elmGerbong;
     info(P) = X;
     next(P) = NULL;
@@ -36,7 +36,7 @@ adrGerbong createElmGerbong(infotypeGerbong X){
 void insertLastGerbong(kereta &k, adrGerbong P){
     /*  {I.S. list gerbong pada kereta k mungkin kosong, dan element gerbong P
          F.S. element gerbong P ditambahkan pada list gerbong paling terakhir}   */
-    if (k.gerbong.first == NULL && k.gerbong.first == NULL){
+    if (k.gerbong.first == NULL && k.gerbong.first == NULL){ // Jika Gerbong Kosong
         k.gerbong.first = P;
         k.gerbong.last = P;
     }else{
@@ -45,14 +45,14 @@ void insertLastGerbong(kereta &k, adrGerbong P){
         prev(P) = Q;
         k.gerbong.last = P;
     }
-    k.info.panjangRangkaian++;
+    k.info.panjangRangkaian++; // Panjang Rangkaian Bertambah
 
     cout << "Gerbong " << info(P).kelas << " berhasil ditambahkan ke kereta " << k.info.nama << endl;
 }
 
 void showGerbong(kereta k){
     /*  {I.S. list gerbong pada kereta k mungkin kosong
-         F.S. menampilkan seluruh data gerbong yang ada pada kereta k}    */
+         F.S. menampilkan seluruh data gerbong yang ada pada kereta k}  */
     cout << "Gerbong dari kereta " << k.info.nama << endl;
     if (k.gerbong.first == NULL){
         adrGerbong P;
@@ -76,7 +76,7 @@ void showGerbong(kereta k){
 
 adrGerbong searchGerbong(kereta k, string kelas){
     /*  {Fungsi akan mengembalikan alamat gerbong jika terdapat pada list gerbong
-     atau NULL jika tidak terdapat pada list gerbong} */
+        atau NULL jika tidak terdapat pada list gerbong} */
 
     adrGerbong P = k.gerbong.first;
 
@@ -107,7 +107,7 @@ void deleteGerbong(kereta &k, adrGerbong g) {
                 } else {
                     prev(k.gerbong.first) = NULL;
                 }
-                
+
                 k.gerbong.first = next(g);
                 next(g) = NULL;
             }else if (g == k.gerbong.last){ // CEK APAKAH ADA DI LAST
