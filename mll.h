@@ -6,6 +6,8 @@ using namespace std;
 
 #include <vector>
 
+#include <bits/stdc++.h>
+
 #define next(P) (P)->next
 #define prev(P) (P)->prev
 #define info(P) (P)->info
