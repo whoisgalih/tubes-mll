@@ -10,7 +10,7 @@
 
 void clearScreen() {
     /* {I.S
-        F.S. Procedure untuk menghapus output yang ada di terminal dengan memanfaatkan "CLS"} */
+        F.S. Procedure untuk menghapus output yang ada di terminal dengan memanfaatkan "cls" pada windows atau "clear" di OS lain} */
     system(CLEAR);
 }
 
