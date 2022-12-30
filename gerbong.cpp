@@ -83,7 +83,7 @@ adrGerbong searchGerbong(kereta k, string kelas){
     adrGerbong P = k.gerbong.first;
 
     while(P!=NULL){
-        if (info(P).kelas == kelas){
+        if (toLower(info(P).kelas) == toLower(kelas)){
             return P;
         }
         P = next(P);

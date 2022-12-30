@@ -122,5 +122,6 @@ void clearScreen();
 void pause();
 string rupiah(int i);
 int intInput(string prompt);
+string toLower(string s);
 
 #endif // MLL_H_INCLUDED
