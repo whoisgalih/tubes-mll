@@ -115,47 +115,39 @@ void deleteDisconnectGerbong(kereta &k, string kelas) {
 
 adrGerbong maxPenumpang(kereta k) {
     /*  {Fungsi mengembalikan alamat gerbong yang memiliki jumlah peumpang paling banyak dari suatu kereta} */
-    if (k.gerbong.first != NULL) {
-        adrGerbong p = next(k.gerbong.first);
-        adrGerbong maxAdr = k.gerbong.first;
-        int maxCount = countPenumpangByGerbong(k, maxAdr);
+    adrGerbong p = next(k.gerbong.first);
+    adrGerbong maxAdr = k.gerbong.first;
+    int maxCount = countPenumpangByGerbong(k, maxAdr);
 
-        while (p != NULL) {
-            int temp = countPenumpangByGerbong(k, p);
-            if (temp > maxCount) {
-                maxCount = temp;
-                maxAdr = p;
-            }
-
-            p = next(p);
+    while (p != NULL) {
+        int temp = countPenumpangByGerbong(k, p);
+        if (temp > maxCount) {
+            maxCount = temp;
+            maxAdr = p;
         }
 
-        return maxAdr;
+        p = next(p);
     }
 
-    return NULL;
+    return maxAdr;
 }
 
 
 adrGerbong minPenumpang(kereta k) {
     /*  {Fungsi mengembalikan alamat gerbong yang memiliki jumlah penumpang paling sedikit dari suatu gerbong} */
-    if (k.gerbong.first != NULL) {
-        adrGerbong p = next(k.gerbong.first);
-        adrGerbong minAdr = k.gerbong.first;
-        int minCount = countPenumpangByGerbong(k, minAdr);
+    adrGerbong p = next(k.gerbong.first);
+    adrGerbong minAdr = k.gerbong.first;
+    int minCount = countPenumpangByGerbong(k, minAdr);
 
-        while (p != NULL) {
-            int temp = countPenumpangByGerbong(k, p);
-            if (temp < minCount) {
-                minCount = temp;
-                minAdr = p;
-            }
-
-            p = next(p);
+    while (p != NULL) {
+        int temp = countPenumpangByGerbong(k, p);
+        if (temp < minCount) {
+            minCount = temp;
+            minAdr = p;
         }
 
-        return minAdr;
+        p = next(p);
     }
 
-    return NULL;
+    return minAdr;
 }

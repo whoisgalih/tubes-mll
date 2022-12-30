@@ -61,8 +61,6 @@ void showPenumpang(kereta k){
          F.S. menampilkan seluruh data penumpang yang ada pada kereta k}    */
     cout << "Penumpang dari kereta " << k.info.nama << endl;
     if (k.penumpang.first==NULL){
-        cout << "Penumpang Kosong"<<endl;
-    }else{
         adrPenumpang P;
         P = k.penumpang.first;
 
@@ -95,7 +93,7 @@ adrPenumpang searchPenumpang(kereta k, string nama){
     adrPenumpang P = k.penumpang.first;
 
     while (P!=NULL){
-        if (info(P).nama == nama){
+        if (toLower(info(P).nama) == toLower(nama)){
             return P;
         }
         P = next(P);
@@ -148,9 +146,7 @@ void deletePenumpang(kereta &k, string nama){
 void showPenumpangByGerbong(kereta k, adrGerbong g){
     /*  {I.S. list penumpang pada kereta k mungkin kosong
          F.S. mencetak seluruh penumpang berdasarkan kelas gerbong}   */
-    if (k.penumpang.first == NULL){
-        cout << "List Penumpang Kosong" << endl;
-    } else if (g == NULL) {
+    if (g == NULL) {
         cout << "Gerbong tidak ada" << endl;
     } else {
         cout << "Penumpang dari kereta " << k.info.nama << " di gerbong " << info(g).kelas << endl;

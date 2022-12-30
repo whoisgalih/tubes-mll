@@ -55,8 +55,6 @@ void showGerbong(kereta k){
          F.S. menampilkan seluruh data gerbong yang ada pada kereta k}  */
     cout << "Gerbong dari kereta " << k.info.nama << endl;
     if (k.gerbong.first == NULL){
-        cout << "Gerbong Kosong"<<endl;
-    }else{
         adrGerbong P;
         P = k.gerbong.first;
 
@@ -83,7 +81,7 @@ adrGerbong searchGerbong(kereta k, string kelas){
     adrGerbong P = k.gerbong.first;
 
     while(P!=NULL){
-        if (info(P).kelas == kelas){
+        if (toLower(info(P).kelas) == toLower(kelas)){
             return P;
         }
         P = next(P);
