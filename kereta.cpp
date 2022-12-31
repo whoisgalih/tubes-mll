@@ -8,6 +8,7 @@ kereta createKereta(infoKereta info) {
     k.penumpang = createListPenumpang();
     k.info = info;
 
+
     return k;
 }
 
