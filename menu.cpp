@@ -85,7 +85,7 @@ string menuKereta(kereta &k) {
         cout << "Konfigurasi seat\t: ";
         cin >> konfigurasiSeat;
         hargaTiket = intInput("Harga tiket\t\t: ");
-        
+
         insertLastGerbong(k, createElmGerbong(createInfoGerbong(kelas, maksPenumpang, konfigurasiSeat, hargaTiket)));
 
         pause();
@@ -132,7 +132,6 @@ string menuKereta(kereta &k) {
         if (pilihan == "1"){
             int nik;
             nik = intInput("NIK penumpang yang dicari: ");
-            cout <<"MASUK";
             adrPenumpang p = searchPenumpang(k,"",nik);
             if (p) {
                 cout << "Terdapat penumpang bernama " << info(p).nama << endl;
