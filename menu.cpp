@@ -75,8 +75,8 @@ string menuKereta(kereta &k) {
     if (inputUser == "0") {
 
     } else if (inputUser == "1"){
-        string kelas,konfigurasiSeat,hargaTiket;
-        int maksPenumpang;
+        string kelas, konfigurasiSeat;
+        int maksPenumpang, hargaTiket;
 
         cout << "Kelas\t\t\t: ";
         getline(cin, kelas, '\n');
@@ -85,8 +85,8 @@ string menuKereta(kereta &k) {
         cout << "Konfigurasi seat\t: ";
         cin >> konfigurasiSeat;
         hargaTiket = intInput("Harga tiket\t\t: ");
-
-        insertLastGerbong(k, createElmGerbong(info));
+        
+        insertLastGerbong(k, createElmGerbong(createInfoGerbong(kelas, maksPenumpang, konfigurasiSeat, hargaTiket)));
 
         pause();
     }else if (inputUser == "2"){

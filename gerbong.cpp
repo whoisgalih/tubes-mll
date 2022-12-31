@@ -10,7 +10,7 @@ listGerbong createListGerbong(){
     return LG;
 }
 
-infotypeGerbong createInfoGerbong(string kelas, int maksPenumpang, string konfigurasiSeat, int hargaTiket){
+infotypeGerbong createInfoGerbong(string kelas, int maksPenumpang, string konfigurasiSeat, int hargaTiket) {
     /*  {Fungsi menginisialiasi X dan mengembalikan X yang berisi info dari suatu gerbong}    */
     infotypeGerbong X;
     X.kelas = kelas;
