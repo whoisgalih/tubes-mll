@@ -185,27 +185,18 @@ string menuKereta(kereta &k) {
         deleteDisconnectGerbong(k,kelas);
         pause();
     }else if (inputUser == "7"){
-        string pilihan;
-        cout << "1. Menghapus berdasarkan NIK"<<endl;
-        cout << "2. Menghapus berdasarkan nama"<<endl;
-        cout << "Masukkan pilihan: ";
-        cin >> pilihan;
-
-        if (pilihan == "1"){
-            int nik;
-            nik = intInput("Masukkan NIK: ");
+        int nik;
+        nik = intInput("Masukkan NIK: ");
+        if (searchPenumpang(k, "", nik)){
             deletePenumpang(k,"", nik);
-            pause();
-        }else if (pilihan == "2"){
-            string nama;
-            cout<<"Masukkan nama: ";
-            getline(cin, nama, '\n');
-            getline(cin, nama, '\n');
-            deletePenumpang(k, nama,NULL);
+            cout << "Penumpang dengan NIK "<<nik<<" berhasil dihapus"<<endl;
             pause();
         }else{
-            invalidInput();
+            cout << "Tidak terdapat penumpang dengan NIK "<<nik<<endl;
+            pause();
         }
+            
+            
     }else if (inputUser == "8"){
         // Menampilkan Data Penumpang Berdasarkan Gerbong Loop
         adrGerbong g = k.gerbong.first;
