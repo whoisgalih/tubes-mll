@@ -78,7 +78,7 @@ string menuKereta(kereta &k) {
         string kelas, konfigurasiSeat;
         int maksPenumpang, hargaTiket;
 
-        cout << "Kelas\t\t\t: ";
+        cout << "Kelas Gerbong\t\t: ";
         getline(cin, kelas, '\n');
         getline(cin, kelas, '\n');
         maksPenumpang = intInput("Maksimal Penumpang\t: ");
@@ -94,7 +94,7 @@ string menuKereta(kereta &k) {
         string kelas,nama,jenisKelamin;
         int nik,usia;
 
-        cout << "Gerbong\t\t: ";
+        cout << "Kelas Gerbong\t: ";
         getline(cin, kelas, '\n');
         getline(cin, kelas, '\n');
 
@@ -174,7 +174,7 @@ string menuKereta(kereta &k) {
         pause();
     }else if (inputUser == "6"){
         string kelas;
-        cout<<"Masukkan gerbong: ";
+        cout<<"Kelas Gerbong: ";
         getline(cin, kelas, '\n');
         getline(cin, kelas, '\n');
         deleteDisconnectGerbong(k,kelas);
