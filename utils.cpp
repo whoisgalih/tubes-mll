@@ -59,7 +59,8 @@ int intInput(string prompt) {
 }
 
 string toLower(string s) {
+    /* {Fungsi digunakan untuk mengubah string menjadi huruf kecil semua} */
     transform(s.begin(), s.end(), s.begin(), ::tolower);
-    
+
     return s;
 }
