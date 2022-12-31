@@ -8,8 +8,8 @@
 #include "mll.h"
 
 void tableHorizontalSparator(vector<int> colWidth) {
-    /* {I.S.
-        F.S.} */
+    /* {I.S. Terdefinisi lebar masing-masing kolom
+        F.S. Menampilkan output berupa "-" dan "+" sebagai pembatas horizontal} */
     int col = colWidth.size();
 
     cout << "+";
@@ -25,8 +25,8 @@ void tableHorizontalSparator(vector<int> colWidth) {
 }
 
 void tableRow(vector<int> colWidth, vector<string> data) {
-    /* {I.S.
-        F.S.} */
+    /* {I.S. Terdefinisi lebar dan data masing-masing kolom
+        F.S. Menampilkan data yang terpisahkan oleh "|" } */
     int col = colWidth.size();
 
     cout << "|";
@@ -45,8 +45,8 @@ void tableRow(vector<int> colWidth, vector<string> data) {
 }
 
 vector<int> colWidth(vector<vector<string>> &t) {
-    /* {I.S.
-        F.S.} */
+    /* {I.S. Terdefinisi kolom dan baris
+        F.S. Mengembalikan panjang maksimal masing-masing kolom} */
     vector<int> colw;
 
     for (int i = 0; i < t[0].size(); i++) {
@@ -67,8 +67,8 @@ vector<int> colWidth(vector<vector<string>> &t) {
 }
 
 void table(vector<vector<string>> &t) {
-    /* {I.S.
-        F.S.} */
+    /* {I.S. Terdefinisi kolom dan baris
+        F.S. Membuat tabel menggunakan procedure tableRow dan procedure tableHorizonalSparator} */
     vector<int> colw = colWidth(t);
 
     tableHorizontalSparator(colw);
