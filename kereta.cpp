@@ -40,7 +40,7 @@ void connectPenumpangGerbong(kereta &k, string nama, int nik, string kelas) {
         }
         if (p == NULL) {
             if (nik) {
-                cout << "Penumpang dengan NIK: " << nik << " tidak ditemukan" << endl;
+                cout << "Penumpang dengan NIK " << nik << " tidak ditemukan" << endl;
             } else {
                 cout << "Penumpang " << nama << " tidak ditemukan" << endl;
             }
@@ -50,7 +50,7 @@ void connectPenumpangGerbong(kereta &k, string nama, int nik, string kelas) {
             gerbong(p) = g;
             info(g).sisaKursi--;
             if (nik) {
-                cout << "Penumpang dengan NIK:" << nik << " berhasil ditambahkan ke gerbong " << kelas << endl;
+                cout << "Penumpang dengan NIK " << nik << " berhasil ditambahkan ke gerbong " << kelas << endl;
             } else {
                 cout << "Penumpang " << nama << " berhasil ditambahkan ke gerbong " << kelas << endl;
             }
