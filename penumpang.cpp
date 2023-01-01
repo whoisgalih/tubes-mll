@@ -85,8 +85,10 @@ void showPenumpang(kereta k){
 }
 
 adrPenumpang searchPenumpang(kereta k, string nama, int nik){
-    /*  {Fungsi akan mengembalikan alamat penumpang jika terdapat pada list penumpang
-     atau NULL jika tidak terdapat pada list penumpang}     */
+    /*  {Terdefinisi kereta, nama, dan nik. Nama akan berisi string kosong jika search berdasarkan nik
+         dan nik akan berisi NULL jika search berdasarkan nama.
+         Fungsi akan mengembalikan alamat penumpang jika terdapat pada list penumpang
+         atau NULL jika tidak terdapat pada list penumpang} */
 
     adrPenumpang P = k.penumpang.first;
 
