@@ -153,7 +153,6 @@ string menuKereta(kereta &k) {
                 cout << "Kategori \t: "<< info(p).kategori<<endl;
                 cout << "Jenis kelamin\t: " << info(p).jenisKelamin << endl;
                 cout << "Gerbong\t\t: " << info(gerbong(p)).kelas << endl;
-                cout << "Kereta\t\t: " << k.info.nama << endl;
             } else {
                 cout << "Tidak terdapat penumpang dengan NIK " << nik << endl;
             }
