@@ -43,7 +43,7 @@ kereta turangga(){
     insertLastPenumpang(kereta, p);
     connectPenumpangGerbong(kereta,"Dian Irdianingsih", NULL, "Eksekutif A");
 
-    p = createElmPenumpang(createInfoPenumpang("Azumah Yasmin", 19, "Perempuang",48605082));
+    p = createElmPenumpang(createInfoPenumpang("Azumah Yasmin", 19, "Perempuan",48605082));
     insertLastPenumpang(kereta, p);
     connectPenumpangGerbong(kereta,"Azumah Yasmin", NULL, "Eksekutif AA");
 
