@@ -17,9 +17,9 @@ infotypePenumpang createInfoPenumpang(string nama, int usia, string jenisKelamin
     X.nama = nama;
     X.usia = usia;
     X.jenisKelamin = jenisKelamin;
-    if (usia > 0 && usia < 17){
+    if (usia >= 0 && usia < 18){
         X.kategori = "anak-anak";
-    }else if (usia > 16 && usia < 61){
+    }else if (usia > 17 && usia < 61){
         X.kategori = "dewasa";
     }else{
         X.kategori = "lansia";
