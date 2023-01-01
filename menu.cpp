@@ -261,7 +261,7 @@ string menuKereta(kereta &k) {
         adrGerbong g = maxPenumpang(k);
         adrGerbong h = k.gerbong.first;
         if (g != NULL) {
-            cout << "Gerbong dengan penumpang paling sedikit adalah:  "<< endl;
+            cout << "Gerbong dengan penumpang paling banyak adalah:  "<< endl;
             vector<vector<string>> t;
             t.push_back({"KELAS","JUMLAH PENUMPANG"});
             while (h != NULL) {
