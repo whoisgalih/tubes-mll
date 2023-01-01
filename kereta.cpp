@@ -28,8 +28,8 @@ infoKereta createInfoKereta(string nama, string asal, string tujuan, string tang
 }
 
 void connectPenumpangGerbong(kereta &k, string nama, int nik, string kelas) {
-    /* {I.S. diberikan kereta k yang mungkin kosong dan nama, kelas gerbong yang mungkin tidak ada pada list
-        F.S. penumpang dengan nama yang diberikan terhubung dengan gerbong yang memiliki kelas yang diberikan} */
+    /* {I.S. diberikan kereta k yang mungkin kosong dan nama, kelas gerbong yang mungkin tidak ada pada list dan nik penumpang yang mungkin tidak ada pada list
+        F.S. penumpang dengan nama/nik yang diberikan terhubung dengan gerbong yang memiliki kelas yang diberikan} */
 
     adrGerbong g = searchGerbong(k, kelas);
     adrPenumpang p = searchPenumpang(k, nama, nik);
