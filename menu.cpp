@@ -68,6 +68,7 @@ string menuKereta(kereta &k) {
     cout << "9. Menampilkan Jumlah Penumpang Berdasarkan Gerbong" << endl;
     cout << "10. Menampilkan Data Gerbong Dengan Jumlah Penumpang Paling Sedikit" << endl;
     cout << "11. Menampilkan Data Gerbong Dengan Jumlah Penumpang Paling Banyak" << endl;
+    cout << "12. Menghubungkan penumpang dan gerbong" << endl;
     cout << "0. Back" << endl;
     cout << "Masukkan pilihan: ";
     cin >> inputUser;
@@ -122,7 +123,7 @@ string menuKereta(kereta &k) {
 
 
                     insertLastPenumpang(k, createElmPenumpang(createInfoPenumpang(nama,usia,jenisKelamin,nik)));
-                    connectPenumpangGerbong(k, nama, kelas);
+                    connectPenumpangGerbong(k, "", nik, kelas);
                     cout << "Penumpang " << nama << " berhasil ditambahkan ke kereta " << k.info.nama << " di gerbong " << kelas << endl;
                 } else {
                     cout << "NIK sudah terdaftar" << endl;
@@ -269,6 +270,18 @@ string menuKereta(kereta &k) {
         } else {
             cout << "List gerbong kosong" << endl;
         }
+        
+        pause();
+        
+    } else if (inputUser == "12") {
+        string kelas;
+        cout << "Kelas gerbong\t: ";
+        getline(cin, kelas, '\n');
+        getline(cin, kelas, '\n');
+        
+        int nik = intInput("NIK\t\t: ");
+        
+        connectPenumpangGerbong(k, "", nik, kelas);
         pause();
     } else {
         invalidInput();

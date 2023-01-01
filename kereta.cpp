@@ -27,23 +27,36 @@ infoKereta createInfoKereta(string nama, string asal, string tujuan, string tang
     return info;
 }
 
-void connectPenumpangGerbong(kereta &k, string nama, string kelas) {
+void connectPenumpangGerbong(kereta &k, string nama, int nik, string kelas) {
     /* {I.S. diberikan kereta k yang mungkin kosong dan nama, kelas gerbong yang mungkin tidak ada pada list
         F.S. penumpang dengan nama yang diberikan terhubung dengan gerbong yang memiliki kelas yang diberikan} */
 
     adrGerbong g = searchGerbong(k, kelas);
-    adrPenumpang p = searchPenumpang(k, nama,NULL);
+    adrPenumpang p = searchPenumpang(k, nama, nik);
 
     if (g == NULL || p == NULL) {
         if (g == NULL) {
             cout << "Gerbong " << kelas << " tidak ditemukan" << endl;
         }
         if (p == NULL) {
-            cout << "Penumpang " << nama << " tidak ditemukan" << endl;
+            if (nik) {
+                cout << "Penumpang dengan NIK: " << nik << " tidak ditemukan" << endl;
+            } else {
+                cout << "Penumpang " << nama << " tidak ditemukan" << endl;
+            }
         }
     } else {
-        gerbong(p) = g;
-        info(gerbong(p)).sisaKursi --;
+        if (info(g).sisaKursi > 0) {
+            gerbong(p) = g;
+            info(g).sisaKursi--;
+            if (nik) {
+                cout << "Penumpang dengan NIK:" << nik << " berhasil ditambahkan ke gerbong " << kelas << endl;
+            } else {
+                cout << "Penumpang " << nama << " berhasil ditambahkan ke gerbong " << kelas << endl;
+            }
+        } else {
+            cout << "Gerbong " << kelas << " penuh" << endl;
+        }
     }
 }
 
