@@ -143,6 +143,7 @@ void deletePenumpang(kereta &k, string nama, int nik){
                 prev(pen) = NULL;
             }
             cout << "Penumpang "<< nama << " behasil dihapus" << endl;
+            info(gerbong(pen)).sisaKursi++;
         } else {
             cout << "Penumpang "<< nama << " tidak terdaftar" << endl;
         }
